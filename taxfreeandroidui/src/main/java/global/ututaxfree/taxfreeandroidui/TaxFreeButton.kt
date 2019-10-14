@@ -9,7 +9,10 @@ import android.widget.Toast
 
 class TaxFreeButton {
 
-    fun showToast(c: Context, message: String) {
-        Toast.makeText(c, message, Toast.LENGTH_LONG).show()
+    companion object {
+        @JvmStatic
+        fun showToast(c: Context, message: String) {
+            Toast.makeText(c, message, Toast.LENGTH_LONG).show()
+        }
     }
 }
