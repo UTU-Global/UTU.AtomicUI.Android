@@ -5,4 +5,18 @@
     <color name="deepTeal">#009681</color>
     <color name="chicBlack">#1E1E20</color>
 
+    <color name="enabledButtonFillColor">#00B398</color>
+    <color name="enabledOutlinedButtonFillColor">#FFFFFF</color>
+
+    <color name="disabledButtonFillColor">#D5D5D5</color>
+    <color name="disabledOutlinedButtonFillColor">#FFFFFF</color>
+
+    <color name="enabledTextButtonColor">#FFFFFF</color>
+    <color name="enabledTextOutlinedButtonColor">#00B398</color>
+
+    <color name="disabledTextButtonColor">#999999</color>
+    <color name="disabledTextOutlinedButtonColor">#D5D5D5</color>
+
+    <color name="pressedTextOutlinedButtonColor">#00B398</color>
+
 </resources>

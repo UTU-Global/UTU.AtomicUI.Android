@@ -2,8 +2,10 @@ package global.ututaxfree.taxfreeandroidui
 
 import android.content.Context
 import android.util.AttributeSet
-import android.widget.Toast
+import android.view.Gravity
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import global.ututaxfree.taxfreeandroidui.utilities.TaxFreeUtils
 
 /**
@@ -15,38 +17,111 @@ class TaxFreeButton @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.style.TaxFreeButton
 ) : AppCompatButton(context, attrs, defStyleAttr) {
+
+    private var isDisabled = false
+    private var isOutlined = false
+
+    private fun setOutlined(outlined: Boolean) {
+        isOutlined = outlined
+        onBuildTaxFreeButton()
+    }
+
+    private fun setDisabled(disabled: Boolean) {
+        isDisabled = disabled
+        onBuildTaxFreeButton()
+    }
+
     init {
-        val a = context.obtainStyledAttributes(
+        gravity = Gravity.CENTER
+        typeface = ResourcesCompat.getFont(context, R.font.notosans_bold)
+
+        val atr = context.obtainStyledAttributes(
             attrs, R.styleable.TaxFreeButton, defStyleAttr, R.style.TaxFreeButton
         )
-        if (a.hasValue(R.styleable.TaxFreeButton_size)) {
-            when (a.getString(R.styleable.TaxFreeButton_size)) {
-                SIZE_SMALL -> {
-                    width = TaxFreeUtils.pxToDp(108)
-                    height = TaxFreeUtils.pxToDp(32)
+
+        isOutlined = atr.getBoolean(R.styleable.TaxFreeButton_outlined, false)
+        isDisabled = atr.getBoolean(R.styleable.TaxFreeButton_disabled, false)
+        onBuildTaxFreeButton()
+
+        when (atr.getString(R.styleable.TaxFreeButton_size)) {
+            SIZE_SMALL -> {
+                width = TaxFreeUtils.pxToDp(108)
+                height = TaxFreeUtils.pxToDp(32)
+                textSize = 14F
+            }
+            SIZE_REGULAR -> {
+                width = TaxFreeUtils.pxToDp(164)
+                height = TaxFreeUtils.pxToDp(40)
+                textSize = 14F
+            }
+            SIZE_BIG -> {
+                width = TaxFreeUtils.pxToDp(186)
+                height = TaxFreeUtils.pxToDp(48)
+                textSize = 16F
+            }
+        }
+        atr.recycle()
+    }
+
+    private fun onBuildTaxFreeButton() {
+        when (isOutlined) {
+            true -> {
+                // Disabled button
+                when (isDisabled) {
+                    // Outlined disabled button
+                    true -> {
+                        background =
+                            ContextCompat.getDrawable(context, R.drawable.outlined_disabled)
+
+                        setTextColor(
+                            ContextCompat.getColor(
+                                context,
+                                R.color.disabledTextOutlinedButtonColor
+                            )
+                        )
+                    }
+                    false -> {
+                        background =
+                            ContextCompat.getDrawable(context, R.drawable.outlined_enabled)
+                        setTextColor(
+                            ContextCompat.getColor(
+                                context,
+                                R.color.enabledTextOutlinedButtonColor
+                            )
+                        )
+                    }
                 }
-                SIZE_REGULAR -> {
-                    width = TaxFreeUtils.pxToDp(164)
-                    height = TaxFreeUtils.pxToDp(40)
-                }
-                SIZE_BIG -> {
-                    width = TaxFreeUtils.pxToDp(186)
-                    height = TaxFreeUtils.pxToDp(48)
+            }
+            false -> {
+                when (isDisabled) {
+                    true -> {
+                        background =
+                            ContextCompat.getDrawable(context, R.drawable.contained_disabled)
+                        setTextColor(
+                            ContextCompat.getColor(
+                                context,
+                                R.color.disabledTextButtonColor
+                            )
+                        )
+                    }
+                    false -> {
+                        background =
+                            ContextCompat.getDrawable(context, R.drawable.contained_enabled)
+                        setTextColor(
+                            ContextCompat.getColor(
+                                context,
+                                R.color.enabledTextButtonColor
+                            )
+                        )
+                    }
                 }
             }
         }
-        a.recycle()
     }
 
     companion object {
-
         const val SIZE_SMALL = "small"
         const val SIZE_REGULAR = "regular"
         const val SIZE_BIG = "big"
-
-        @JvmStatic
-        fun showToast(c: Context, message: String) {
-            Toast.makeText(c, message, Toast.LENGTH_LONG).show()
-        }
     }
 }

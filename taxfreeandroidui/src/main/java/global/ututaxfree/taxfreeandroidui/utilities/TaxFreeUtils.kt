@@ -1,6 +1,5 @@
 package global.ututaxfree.taxfreeandroidui.utilities
 
-import android.content.Context
 import android.content.res.Resources
 
 /**
@@ -8,12 +7,8 @@ import android.content.res.Resources
  */
 class TaxFreeUtils {
     companion object {
-        fun PixelsToDp(context: Context, pixels: Int): Float {
-            return pixels / (context.resources.displayMetrics.densityDpi / 160f)
-        }
-
         fun pxToDp(px: Int): Int {
-            return (px * Resources.getSystem().getDisplayMetrics().density).toInt()
+            return (px * Resources.getSystem().displayMetrics.density).toInt()
         }
     }
 }

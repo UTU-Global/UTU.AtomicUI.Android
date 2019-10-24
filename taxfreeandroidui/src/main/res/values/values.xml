@@ -4,14 +4,14 @@
     <declare-styleable name="TaxFreeButton">
         <attr name="size" format="string" />
         <attr name="outlined" format="boolean" />
-        <attr name="pressed" format="boolean" />
+        <attr name="disabled" format="boolean" />
         <attr name="state" format="string" />
     </declare-styleable>
 
     <style name="Base.TaxFreeButton" parent="android:Widget.Button">
-        <item name="size">small</item>
+        <item name="size">regular</item>
         <item name="outlined">false</item>
-        <item name="pressed">false</item>
+        <item name="disabled">false</item>
     </style>
 
     <style name="TaxFreeButton" parent="Base.TaxFreeButton" />
