@@ -12,11 +12,24 @@ import global.ututaxfree.taxfreeandroidui.utilities.TaxFreeUtils
  * Created by Bharath Simha Gupta on 10/14/2019.
  */
 
-class TaxFreeButton @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = R.style.TaxFreeButton
-) : AppCompatButton(context, attrs, defStyleAttr) {
+class TaxFreeButton : AppCompatButton {
+
+    constructor(context: Context) : super(context) {
+        onInit(context, null, R.style.TaxFreeButton)
+
+    }
+
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+        onInit(context, attrs, R.style.TaxFreeButton)
+    }
+
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
+        onInit(context, attrs, defStyleAttr)
+    }
 
     private var isDisabled = false
     private var isOutlined = false
@@ -31,7 +44,8 @@ class TaxFreeButton @JvmOverloads constructor(
         onBuildTaxFreeButton()
     }
 
-    init {
+    private fun onInit(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
+
         gravity = Gravity.CENTER
         typeface = ResourcesCompat.getFont(context, R.font.notosans_bold)
 
@@ -60,6 +74,7 @@ class TaxFreeButton @JvmOverloads constructor(
                 textSize = 16F
             }
         }
+
         atr.recycle()
     }
 
@@ -82,7 +97,7 @@ class TaxFreeButton @JvmOverloads constructor(
                     }
                     false -> {
                         background =
-                            ContextCompat.getDrawable(context, R.drawable.outlined_enabled)
+                            ContextCompat.getDrawable(context, R.drawable.outlined_state)
                         setTextColor(
                             ContextCompat.getColor(
                                 context,
@@ -96,7 +111,7 @@ class TaxFreeButton @JvmOverloads constructor(
                 when (isDisabled) {
                     true -> {
                         background =
-                            ContextCompat.getDrawable(context, R.drawable.contained_disabled)
+                            ContextCompat.getDrawable(context, R.drawable.combined_disabled)
                         setTextColor(
                             ContextCompat.getColor(
                                 context,
@@ -106,11 +121,10 @@ class TaxFreeButton @JvmOverloads constructor(
                     }
                     false -> {
                         background =
-                            ContextCompat.getDrawable(context, R.drawable.contained_enabled)
+                            ContextCompat.getDrawable(context, R.drawable.combined_state)
                         setTextColor(
                             ContextCompat.getColor(
-                                context,
-                                R.color.enabledTextButtonColor
+                                context, R.color.enabledTextButtonColor
                             )
                         )
                     }
