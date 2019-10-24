@@ -8,7 +8,12 @@
 
     <global.ututaxfree.taxfreeandroidui.TaxFreeButton
         android:layout_width="wrap_content"
+        android:id="@+id/buttontax"
         android:layout_height="wrap_content"
+        android:background="@color/chicBlack"
+        android:text="Button"
+        android:textColor="#FFFFFF"
+        app:size="small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
