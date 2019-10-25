@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TaxFreeAndroidUI</string>
+    <string name="close_toast">Close Toast</string>
 </resources>

@@ -34,12 +34,12 @@ class TaxFreeButton : AppCompatButton {
     private var isDisabled = false
     private var isOutlined = false
 
-    private fun setOutlined(outlined: Boolean) {
+    fun setOutlined(outlined: Boolean) {
         isOutlined = outlined
         onBuildTaxFreeButton()
     }
 
-    private fun setDisabled(disabled: Boolean) {
+    fun setDisabled(disabled: Boolean) {
         isDisabled = disabled
         onBuildTaxFreeButton()
     }

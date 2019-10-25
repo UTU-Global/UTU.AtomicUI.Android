@@ -19,8 +19,9 @@
 
     <color name="pressedTextOutlinedButtonColor">#00B398</color>
 
-    <color name="blue">#0066cc</color>
-    <color name="gold">#e6b121</color>
-    <color name="grey">#cccccc</color>
+    <color name="snackbarBgColor">#F5F5F5</color>
 
+    <color name="success">#00B398</color>
+    <color name="warning">#FF9948</color>
+    <color name="error">#E33D30</color>
 </resources>
