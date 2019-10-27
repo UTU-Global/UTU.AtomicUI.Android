@@ -39,7 +39,7 @@ class TaxFreeButton : AppCompatButton {
         onBuildTaxFreeButton()
     }
 
-    pubic fun setDisabled(disabled: Boolean) {
+    public fun setDisabled(disabled: Boolean) {
         isDisabled = disabled
         onBuildTaxFreeButton()
     }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr format="reference" name="taxFreeStyle"/>
+    <attr name="taxFreeStyle" format="reference" />
     <declare-styleable name="TaxFreeButton">
         <attr name="size" format="string" />
         <attr name="outlined" format="boolean" />
