@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import androidx.appcompat.widget.AppCompatTextView
-import com.google.android.material.snackbar.Snackbar
+import com.androidadvance.topsnackbar.TSnackbar
 import global.ututaxfree.taxfreeandroidui.utilities.TaxFreeUtils
 
 /**
@@ -26,11 +26,11 @@ class UTUToast {
             context: Context, view: View, actionText: String, actionType: String,
             listener: UTUToastClosedListener?
         ) {
-            val snackBar: Snackbar = Snackbar.make(view, "", Snackbar.LENGTH_LONG)
+            val snackBar: TSnackbar = TSnackbar.make(view, "", TSnackbar.LENGTH_LONG)
             val customView =
                 (context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
                     .inflate(R.layout.utu_toast, null)
-            val snackBarView = snackBar.view as Snackbar.SnackbarLayout
+            val snackBarView = snackBar.view as TSnackbar.SnackbarLayout
             val parentParams = snackBarView.layoutParams as FrameLayout.LayoutParams
             parentParams.width = FrameLayout.LayoutParams.MATCH_PARENT
             parentParams.height = TaxFreeUtils.pxToDp(48)
