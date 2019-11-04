@@ -26,7 +26,7 @@ class UTUToast {
             context: Context, view: View, actionText: String, actionType: String,
             listener: UTUToastClosedListener?
         ) {
-            val snackBar: Snackbar = Snackbar.make(view, "", Snackbar.LENGTH_INDEFINITE)
+            val snackBar: Snackbar = Snackbar.make(view, "", Snackbar.LENGTH_LONG)
             val customView =
                 (context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
                     .inflate(R.layout.utu_toast, null)
