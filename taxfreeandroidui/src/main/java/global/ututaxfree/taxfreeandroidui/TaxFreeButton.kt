@@ -47,6 +47,7 @@ class TaxFreeButton : AppCompatButton {
     private fun onInit(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
 
         gravity = Gravity.CENTER
+        isAllCaps = false
         typeface = ResourcesCompat.getFont(context, R.font.notosans_bold)
 
         val atr = context.obtainStyledAttributes(
