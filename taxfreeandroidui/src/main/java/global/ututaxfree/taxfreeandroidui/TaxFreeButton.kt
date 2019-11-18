@@ -86,6 +86,7 @@ class TaxFreeButton : AppCompatButton {
                 when (isDisabled) {
                     // Outlined disabled button
                     true -> {
+                        isClickable = false
                         background =
                             ContextCompat.getDrawable(context, R.drawable.outlined_disabled)
 
@@ -97,6 +98,7 @@ class TaxFreeButton : AppCompatButton {
                         )
                     }
                     false -> {
+                        isClickable = true
                         background =
                             ContextCompat.getDrawable(context, R.drawable.outlined_state)
                         setTextColor(
@@ -111,6 +113,7 @@ class TaxFreeButton : AppCompatButton {
             false -> {
                 when (isDisabled) {
                     true -> {
+                        isClickable = false
                         background =
                             ContextCompat.getDrawable(context, R.drawable.combined_disabled)
                         setTextColor(
@@ -121,6 +124,7 @@ class TaxFreeButton : AppCompatButton {
                         )
                     }
                     false -> {
+                        isClickable = true
                         background =
                             ContextCompat.getDrawable(context, R.drawable.combined_state)
                         setTextColor(
