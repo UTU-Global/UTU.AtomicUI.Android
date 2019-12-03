@@ -14,7 +14,7 @@ import global.ututaxfree.taxfreeandroidui.utilities.TaxFreeUtils
  * Created by Bharath Simha Gupta on 10/25/2019.
  */
 
-class UTUToast {
+class AtomicToast {
 
     companion object {
 
@@ -24,7 +24,7 @@ class UTUToast {
 
         fun show(
             context: Context, view: View, actionText: String, actionType: String,
-            listener: UTUToastClosedListener?
+            listener: ToastClosedListener?
         ) {
             val snackBar: TSnackbar = TSnackbar.make(view, "", TSnackbar.LENGTH_LONG)
             val customView =
