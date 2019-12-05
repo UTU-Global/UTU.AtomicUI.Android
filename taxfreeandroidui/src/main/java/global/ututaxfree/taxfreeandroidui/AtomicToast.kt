@@ -68,6 +68,13 @@ class AtomicToast {
                 listener?.onToastClosed()
             }
 
+            snackBar.setCallback(object : TSnackbar.Callback() {
+                override fun onDismissed(snackbar: TSnackbar?, event: Int) {
+                    super.onDismissed(snackbar, event)
+                    listener?.onToastClosed()
+                }
+            })
+
             snackBarView.setPadding(0, 0, 0, 0)
             snackBarView.addView(customView, 0)
             snackBar.show()
