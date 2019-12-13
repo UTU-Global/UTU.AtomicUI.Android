@@ -26,6 +26,21 @@ class AtomicToast {
             context: Context, view: View, actionText: String, actionType: String,
             listener: ToastClosedListener?
         ) {
+            show(context, view, actionText, actionType, listener, false)
+        }
+
+        fun show(
+            context: Context, view: View, actionText: String, actionType: String,
+            listener: ToastClosedListener?, isCloseButton: Boolean
+        ) {
+            onBuildToast(context, view, actionText, actionType, listener, isCloseButton)
+        }
+
+        private fun onBuildToast(
+            context: Context, view: View, actionText: String, actionType: String,
+            listener: ToastClosedListener?, isCloseButton: Boolean
+        ) {
+
             val snackBar: TSnackbar = TSnackbar.make(view, "", TSnackbar.LENGTH_LONG)
             val customView =
                 (context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
@@ -41,31 +56,39 @@ class AtomicToast {
             textView.text = actionText
 
             val closeToast = customView.findViewById<ImageButton>(R.id.closeToast)
+            if (isCloseButton) {
+                closeToast.visibility = View.VISIBLE
+            }
 
             when (actionType) {
                 TYPE_SUCCESS -> {
                     textView.setCompoundDrawablesWithIntrinsicBounds(
                         R.drawable.ic_success, 0, 0, 0
                     )
-                    closeToast.setImageResource(R.drawable.ic_success_close)
+                    if (isCloseButton) {
+                        closeToast.setImageResource(R.drawable.ic_success_close)
+                    }
                 }
                 TYPE_WARNING -> {
                     textView.setCompoundDrawablesWithIntrinsicBounds(
                         R.drawable.ic_warning, 0, 0, 0
                     )
-                    closeToast.setImageResource(R.drawable.ic_warning_close)
+                    if (isCloseButton) {
+                        closeToast.setImageResource(R.drawable.ic_warning_close)
+                    }
                 }
                 TYPE_ERROR -> {
                     textView.setCompoundDrawablesWithIntrinsicBounds(
                         R.drawable.ic_error, 0, 0, 0
                     )
-                    closeToast.setImageResource(R.drawable.ic_error_close)
+                    if (isCloseButton) {
+                        closeToast.setImageResource(R.drawable.ic_error_close)
+                    }
                 }
             }
 
             closeToast.setOnClickListener {
                 snackBar.dismiss()
-                listener?.onToastClosed()
             }
 
             snackBar.setCallback(object : TSnackbar.Callback() {
@@ -78,6 +101,7 @@ class AtomicToast {
             snackBarView.setPadding(0, 0, 0, 0)
             snackBarView.addView(customView, 0)
             snackBar.show()
+
         }
     }
 }
