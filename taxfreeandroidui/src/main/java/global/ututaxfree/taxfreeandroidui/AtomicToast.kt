@@ -7,14 +7,14 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import androidx.appcompat.widget.AppCompatTextView
-import com.google.android.material.snackbar.Snackbar
+import com.androidadvance.topsnackbar.TSnackbar
 import global.ututaxfree.taxfreeandroidui.utilities.TaxFreeUtils
 
 /**
  * Created by Bharath Simha Gupta on 10/25/2019.
  */
 
-class UTUToast {
+class AtomicToast {
 
     companion object {
 
@@ -24,13 +24,28 @@ class UTUToast {
 
         fun show(
             context: Context, view: View, actionText: String, actionType: String,
-            listener: UTUToastClosedListener?
+            listener: ToastClosedListener?
         ) {
-            val snackBar: Snackbar = Snackbar.make(view, "", Snackbar.LENGTH_INDEFINITE)
+            show(context, view, actionText, actionType, listener, false)
+        }
+
+        fun show(
+            context: Context, view: View, actionText: String, actionType: String,
+            listener: ToastClosedListener?, isCloseButton: Boolean
+        ) {
+            onBuildToast(context, view, actionText, actionType, listener, isCloseButton)
+        }
+
+        private fun onBuildToast(
+            context: Context, view: View, actionText: String, actionType: String,
+            listener: ToastClosedListener?, isCloseButton: Boolean
+        ) {
+
+            val snackBar: TSnackbar = TSnackbar.make(view, "", TSnackbar.LENGTH_LONG)
             val customView =
                 (context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
                     .inflate(R.layout.utu_toast, null)
-            val snackBarView = snackBar.view as Snackbar.SnackbarLayout
+            val snackBarView = snackBar.view as TSnackbar.SnackbarLayout
             val parentParams = snackBarView.layoutParams as FrameLayout.LayoutParams
             parentParams.width = FrameLayout.LayoutParams.MATCH_PARENT
             parentParams.height = TaxFreeUtils.pxToDp(48)
@@ -41,36 +56,52 @@ class UTUToast {
             textView.text = actionText
 
             val closeToast = customView.findViewById<ImageButton>(R.id.closeToast)
+            if (isCloseButton) {
+                closeToast.visibility = View.VISIBLE
+            }
 
             when (actionType) {
                 TYPE_SUCCESS -> {
                     textView.setCompoundDrawablesWithIntrinsicBounds(
                         R.drawable.ic_success, 0, 0, 0
                     )
-                    closeToast.setImageResource(R.drawable.ic_success_close)
+                    if (isCloseButton) {
+                        closeToast.setImageResource(R.drawable.ic_success_close)
+                    }
                 }
                 TYPE_WARNING -> {
                     textView.setCompoundDrawablesWithIntrinsicBounds(
                         R.drawable.ic_warning, 0, 0, 0
                     )
-                    closeToast.setImageResource(R.drawable.ic_warning_close)
+                    if (isCloseButton) {
+                        closeToast.setImageResource(R.drawable.ic_warning_close)
+                    }
                 }
                 TYPE_ERROR -> {
                     textView.setCompoundDrawablesWithIntrinsicBounds(
                         R.drawable.ic_error, 0, 0, 0
                     )
-                    closeToast.setImageResource(R.drawable.ic_error_close)
+                    if (isCloseButton) {
+                        closeToast.setImageResource(R.drawable.ic_error_close)
+                    }
                 }
             }
 
             closeToast.setOnClickListener {
                 snackBar.dismiss()
-                listener?.onToastClosed()
             }
+
+            snackBar.setCallback(object : TSnackbar.Callback() {
+                override fun onDismissed(snackbar: TSnackbar?, event: Int) {
+                    super.onDismissed(snackbar, event)
+                    listener?.onToastClosed()
+                }
+            })
 
             snackBarView.setPadding(0, 0, 0, 0)
             snackBarView.addView(customView, 0)
             snackBar.show()
+
         }
     }
 }

@@ -30,5 +30,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
 
+    implementation 'com.androidadvance:topsnackbar:1.1.1'
+
     implementation 'com.google.android.material:material:1.0.0'
 }

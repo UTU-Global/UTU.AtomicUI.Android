@@ -47,6 +47,7 @@ class TaxFreeButton : AppCompatButton {
     private fun onInit(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
 
         gravity = Gravity.CENTER
+        isAllCaps = false
         typeface = ResourcesCompat.getFont(context, R.font.notosans_bold)
 
         val atr = context.obtainStyledAttributes(
@@ -85,6 +86,7 @@ class TaxFreeButton : AppCompatButton {
                 when (isDisabled) {
                     // Outlined disabled button
                     true -> {
+                        isClickable = false
                         background =
                             ContextCompat.getDrawable(context, R.drawable.outlined_disabled)
 
@@ -96,6 +98,7 @@ class TaxFreeButton : AppCompatButton {
                         )
                     }
                     false -> {
+                        isClickable = true
                         background =
                             ContextCompat.getDrawable(context, R.drawable.outlined_state)
                         setTextColor(
@@ -110,6 +113,7 @@ class TaxFreeButton : AppCompatButton {
             false -> {
                 when (isDisabled) {
                     true -> {
+                        isClickable = false
                         background =
                             ContextCompat.getDrawable(context, R.drawable.combined_disabled)
                         setTextColor(
@@ -120,6 +124,7 @@ class TaxFreeButton : AppCompatButton {
                         )
                     }
                     false -> {
+                        isClickable = true
                         background =
                             ContextCompat.getDrawable(context, R.drawable.combined_state)
                         setTextColor(
