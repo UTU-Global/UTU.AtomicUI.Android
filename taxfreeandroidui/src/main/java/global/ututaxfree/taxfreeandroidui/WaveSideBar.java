@@ -17,8 +17,9 @@ import androidx.core.content.ContextCompat;
 import java.util.Arrays;
 
 /**
- * Created by gjz on 8/23/16.
+ * Created by Likhitha on 20/12/2019
  */
+
 public class WaveSideBar extends View {
     private final static int DEFAULT_TEXT_SIZE = 14; // sp
     private final static int DEFAULT_MAX_OFFSET = 80; //dp

@@ -11,6 +11,10 @@ import java.util.ArrayList;
 
 import global.ututaxfree.taxfreeandroidui.WaveSideBar;
 
+/**
+ * Created by Likhitha on 20/12/2019
+ */
+
 public class ContactsActivity extends AppCompatActivity {
 
     private RecyclerView rvContacts;

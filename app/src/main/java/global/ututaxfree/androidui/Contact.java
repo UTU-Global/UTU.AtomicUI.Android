@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by gjz on 9/3/16.
+ * Created by Likhitha on 20/12/2019
  */
 public class Contact {
     private String index;

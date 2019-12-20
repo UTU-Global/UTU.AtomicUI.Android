@@ -12,8 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 /**
- * Created by gjz on 9/4/16.
+ * Created by Likhitha on 20/12/2019
  */
+
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ContactsViewHolder> {
 
     private List<Contact> contacts;
