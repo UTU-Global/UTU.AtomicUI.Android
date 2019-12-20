@@ -12,8 +12,9 @@ import global.ututaxfree.androidui.ContactsAdapter.ContactsViewHolder
 /**
  * Created by Likhitha on 20/12/2019
  */
-private class ContactsAdapter(private val contacts: List<Contact>, private val layoutId: Int) :
+class ContactsAdapter(private val contacts: List<Contact>, private val layoutId: Int) :
     RecyclerView.Adapter<ContactsViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(layoutId, null)
@@ -35,17 +36,13 @@ private class ContactsAdapter(private val contacts: List<Contact>, private val l
         return contacts.size
     }
 
-    internal inner class ContactsViewHolder(itemView: View) :
+    class ContactsViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
-        var tvIndex: TextView
-        var ivAvatar: ImageView
-        var tvName: TextView
+        var tvIndex: TextView = itemView.findViewById(R.id.tv_index)
+        var ivAvatar: ImageView = itemView.findViewById(R.id.iv_avatar)
+        var tvName: TextView = itemView.findViewById(R.id.tv_name)
 
         init {
-            tvIndex = itemView.findViewById<View>(R.id.tv_index) as TextView
-            ivAvatar =
-                itemView.findViewById<View>(R.id.iv_avatar) as ImageView
-            tvName = itemView.findViewById<View>(R.id.tv_name) as TextView
             itemView.setOnClickListener { v ->
                 Toast.makeText(v.context, tvName.text.toString(), Toast.LENGTH_SHORT)
                     .show()
