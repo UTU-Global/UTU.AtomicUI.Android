@@ -29,14 +29,16 @@ class ContactsActivity : AppCompatActivity() {
         rvContacts!!.layoutManager = LinearLayoutManager(this)
         rvContacts!!.adapter = ContactsAdapter(contacts, R.layout.item_contacts)
         sideBar = findViewById<View>(R.id.side_bar) as WaveSideBar
-        sideBar!!.setOnSelectIndexItemListener(OnSelectIndexItemListener { index ->
-            for (i in contacts.indices) {
-                if (contacts[i].index == index) {
-                    (rvContacts!!.layoutManager as LinearLayoutManager?)!!.scrollToPositionWithOffset(
-                        i,
-                        0
-                    )
-                    return@OnSelectIndexItemListener
+        sideBar!!.setOnSelectIndexItemListener(object : OnSelectIndexItemListener {
+            override fun onSelectIndexItem(index: String?) {
+                for (i in contacts.indices) {
+                    if (contacts[i].index == index) {
+                        (rvContacts!!.layoutManager as LinearLayoutManager?)!!.scrollToPositionWithOffset(
+                            i,
+                            0
+                        )
+                        return
+                    }
                 }
             }
         })

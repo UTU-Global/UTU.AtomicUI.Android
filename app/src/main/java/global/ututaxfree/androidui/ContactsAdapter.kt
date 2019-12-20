@@ -12,7 +12,7 @@ import global.ututaxfree.androidui.ContactsAdapter.ContactsViewHolder
 /**
  * Created by Likhitha on 20/12/2019
  */
-private class ContactsAdapter(private val contacts: List<Contact>, private val layoutId: Int) :
+class ContactsAdapter(private val contacts: List<Contact>, private val layoutId: Int) :
     RecyclerView.Adapter<ContactsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -35,7 +35,7 @@ private class ContactsAdapter(private val contacts: List<Contact>, private val l
         return contacts.size
     }
 
-    internal inner class ContactsViewHolder(itemView: View) :
+    inner class ContactsViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
         var tvIndex: TextView
         var ivAvatar: ImageView
