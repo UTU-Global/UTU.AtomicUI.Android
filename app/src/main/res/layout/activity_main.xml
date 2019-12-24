@@ -7,16 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <global.ututaxfree.taxfreeandroidui.TaxFreeButton
-        android:id="@+id/taxFreeB"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Button"
-        android:visibility="gone"
-        app:outlined="true"
-        app:size="big" />
+<!--    <global.ututaxfree.taxfreeandroidui.TaxFreeButton-->
+<!--        android:id="@+id/taxFreeB"-->
+<!--        style="?android:attr/borderlessButtonStyle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:text="Button"-->
+<!--        android:visibility="gone"-->
+<!--        app:outlined="true"-->
+<!--        app:size="big" />-->
 
     <global.ututaxfree.taxfreeandroidui.RecyclerCustomView
         android:layout_width="match_parent"

@@ -2,6 +2,7 @@ package global.ututaxfree.taxfreeandroidui
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,16 +12,13 @@ import java.util.*
 class RecyclerCustomView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : RelativeLayout(context, attrs, defStyleAttr) {
-
     private val contacts = ArrayList<Contact>()
     init {
         initView()
         initData()
     }
     private fun initView() {
-        val customView =
-            (context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
-                .inflate(R.layout.activity_contacts, null)
+        val customView =    inflate(getContext(), R.layout.activity_contacts, this);
         val rvContacts = customView.findViewById<RecyclerView>(R.id.rv_contacts)
         rvContacts!!.layoutManager = LinearLayoutManager(context)
         rvContacts.adapter =
@@ -43,6 +41,7 @@ class RecyclerCustomView @JvmOverloads constructor(
             }
         })
     }
+
 
     private fun initData() {
         contacts.addAll(Contact.englishContacts)

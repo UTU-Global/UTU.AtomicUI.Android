@@ -13,18 +13,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        taxFreeB.setOnClickListener {
-            AtomicToast.show(
-                context = applicationContext,
-                view = mainLayout,
-                actionText = "Testing Snackbar!!!!",
-                actionType = AtomicToast.TYPE_ERROR,
-                listener = object : ToastClosedListener {
-                    override fun onToastClosed() {
-                        Toast.makeText(applicationContext, "Toast closed", Toast.LENGTH_LONG).show()
-                    }
-                }
-            )
-        }
+//        taxFreeB.setOnClickListener {
+//            AtomicToast.show(
+//                context = applicationContext,
+//                view = mainLayout,
+//                actionText = "Testing Snackbar!!!!",
+//                actionType = AtomicToast.TYPE_ERROR,
+//                listener = object : ToastClosedListener {
+//                    override fun onToastClosed() {
+//                        Toast.makeText(applicationContext, "Toast closed", Toast.LENGTH_LONG).show()
+//                    }
+//                }
+//            )
+//        }
     }
 }

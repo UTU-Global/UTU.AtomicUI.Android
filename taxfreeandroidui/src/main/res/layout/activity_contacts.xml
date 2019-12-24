@@ -10,7 +10,8 @@
     <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/rv_contacts"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+        tools:listitem="@layout/item_contacts"/>
 
     <global.ututaxfree.taxfreeandroidui.WaveSideBar
         android:id="@+id/side_bar"
