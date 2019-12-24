@@ -1,4 +1,4 @@
-package global.ututaxfree.androidui
+package global.ututaxfree.taxfreeandroidui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import global.ututaxfree.androidui.ContactsAdapter.ContactsViewHolder
+import global.ututaxfree.taxfreeandroidui.ContactsAdapter.ContactsViewHolder
 
 /**
  * Created by Likhitha on 20/12/2019

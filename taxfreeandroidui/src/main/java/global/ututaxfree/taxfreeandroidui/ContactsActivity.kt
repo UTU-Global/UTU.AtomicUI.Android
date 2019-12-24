@@ -1,12 +1,11 @@
-package global.ututaxfree.androidui
+package global.ututaxfree.taxfreeandroidui
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import global.ututaxfree.androidui.Contact.Companion.englishContacts
-import global.ututaxfree.taxfreeandroidui.WaveSideBar
+import global.ututaxfree.taxfreeandroidui.Contact.Companion.englishContacts
 import global.ututaxfree.taxfreeandroidui.WaveSideBar.OnSelectIndexItemListener
 import java.util.*
 
@@ -27,7 +26,11 @@ class ContactsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_contacts)
         rvContacts = findViewById<View>(R.id.rv_contacts) as RecyclerView
         rvContacts!!.layoutManager = LinearLayoutManager(this)
-        rvContacts!!.adapter = ContactsAdapter(contacts, R.layout.item_contacts)
+        rvContacts!!.adapter =
+            ContactsAdapter(
+                contacts,
+                R.layout.item_contacts
+            )
         sideBar = findViewById<View>(R.id.side_bar) as WaveSideBar
         sideBar!!.setOnSelectIndexItemListener(object : OnSelectIndexItemListener {
             override fun onSelectIndexItem(index: String?) {

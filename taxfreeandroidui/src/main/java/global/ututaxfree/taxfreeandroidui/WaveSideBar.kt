@@ -315,7 +315,7 @@ class WaveSideBar @JvmOverloads constructor(
         private const val DEFAULT_TEXT_SIZE = 14 // sp
         private const val DEFAULT_MAX_OFFSET = 80 //dp
         private val DEFAULT_INDEX_ITEMS = arrayOf(
-            "A", "B", "C", "D", "E", "F", "G", "H", "I",
+            "#","A", "B", "C", "D", "E", "F", "G", "H", "I",
             "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
         )
         const val POSITION_RIGHT = 0
