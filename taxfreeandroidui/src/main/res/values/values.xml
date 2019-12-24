@@ -24,6 +24,12 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="CustomRatingBar">
+        <attr name="maxRating" format="integer" />
+        <attr name="filledDrawable" format="integer" />
+        <attr name="unfilledDrawable" format="integer" />
+    </declare-styleable>
+
     <style name="Base.TaxFreeButton" parent="android:Widget.Button">
         <item name="size">regular</item>
         <item name="outlined">false</item>
