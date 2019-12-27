@@ -24,4 +24,6 @@
     <color name="success">#00B398</color>
     <color name="warning">#FF9948</color>
     <color name="error">#E33D30</color>
+
+    <color name="colorAccent">#00B398</color>
 </resources>
