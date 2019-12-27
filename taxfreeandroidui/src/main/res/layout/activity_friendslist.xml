@@ -22,7 +22,7 @@
         app:boxCornerRadiusTopEnd="3dp"
         app:boxCornerRadiusTopStart="3dp">
 
-        <global.ututaxfree.taxfreeandroidui.utilities.ClearableTextInput
+        <global.ututaxfree.taxfreeandroidui.AtomicTextInput
             android:id="@+id/friendListSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AtomicTextInput">
+        <attr name="clearIconDrawable" format="color|reference" />
+        <attr name="clearIconDrawWhenFocused" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="AtomicHeaderView">
+        <attr name="actionType" format="string" />
+        <attr name="menuText" format="string" />
+        <attr name="menuIcon" format="reference" />
+        <attr name="headerLabel" format="string" />
+        <attr name="actionIconColor" format="integer" />
+        <attr name="isTransparentHeader" format="boolean" />
+    </declare-styleable>
+
+</resources>

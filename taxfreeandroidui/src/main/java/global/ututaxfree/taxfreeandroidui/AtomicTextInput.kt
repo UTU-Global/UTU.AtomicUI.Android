@@ -1,4 +1,4 @@
-package global.ututaxfree.taxfreeandroidui.utilities
+package global.ututaxfree.taxfreeandroidui
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -15,14 +15,12 @@ import android.view.MotionEvent
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import com.google.android.material.textfield.TextInputEditText
-import global.ututaxfree.taxfreeandroidui.R
 
 /**
  * Created by Likhitha Kolla on 18/12/2019.
  */
 
-
-class ClearableTextInput @JvmOverloads constructor(
+class AtomicTextInput @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.editTextStyle
@@ -40,10 +38,10 @@ class ClearableTextInput @JvmOverloads constructor(
     ) { // Load attributes
 
         val a = context.obtainStyledAttributes(
-            attrs, R.styleable.ClearableTextInput, defStyle, 0
+            attrs, R.styleable.AtomicTextInput, defStyle, 0
         )
-        mClearIconDrawable = if (a.hasValue(R.styleable.ClearableEditText_clearIconDrawable)) {
-            a.getDrawable(R.styleable.ClearableEditText_clearIconDrawable)
+        mClearIconDrawable = if (a.hasValue(R.styleable.AtomicTextInput_clearIconDrawable)) {
+            a.getDrawable(R.styleable.AtomicTextInput_clearIconDrawable)
         } else {
             ContextCompat.getDrawable(
                 context,
@@ -54,7 +52,7 @@ class ClearableTextInput @JvmOverloads constructor(
             mClearIconDrawable!!.callback = this
         }
         mClearIconDrawWhenFocused =
-            a.getBoolean(R.styleable.ClearableEditText_clearIconDrawWhenFocused, true)
+            a.getBoolean(R.styleable.AtomicTextInput_clearIconDrawWhenFocused, true)
         a.recycle()
     }
 
@@ -162,7 +160,6 @@ class ClearableTextInput @JvmOverloads constructor(
         superState
     ) {
 
-
         override fun writeToParcel(out: Parcel, flags: Int) {
             super.writeToParcel(out, flags)
             out.writeByte((if (isClearIconShown) 1 else 0).toByte())
@@ -172,7 +169,6 @@ class ClearableTextInput @JvmOverloads constructor(
             return 0
         }
     }
-
 
     companion object {
         @DrawableRes

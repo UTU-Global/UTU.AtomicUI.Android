@@ -9,29 +9,19 @@
     </declare-styleable>
 
     <declare-styleable name="WaveSideBar">
-        <attr name="sidebar_lazy_respond" format="boolean"/>
-        <attr name="sidebar_text_size" format="dimension"/>
-        <attr name="sidebar_text_color" format="color"/>
-        <attr name="sidebar_max_offset" format="dimension"/>
+        <attr name="sidebar_lazy_respond" format="boolean" />
+        <attr name="sidebar_text_size" format="dimension" />
+        <attr name="sidebar_text_color" format="color" />
+        <attr name="sidebar_max_offset" format="dimension" />
         <attr name="sidebar_position" format="enum">
-            <enum name="right" value="0"/>
-            <enum name="left" value="1"/>
+            <enum name="right" value="0" />
+            <enum name="left" value="1" />
         </attr>
         <attr name="sidebar_text_alignment" format="enum">
-            <enum name="center" value="0"/>
-            <enum name="left" value="1"/>
+            <enum name="center" value="0" />
+            <enum name="left" value="1" />
             <enum name="right" value="2" />
         </attr>
-    </declare-styleable>
-
-    <declare-styleable name="ClearableTextInput" parent="ClearableEditText">
-        <attr name="clearIconDrawable" />
-        <attr name="clearIconDrawWhenFocused" />
-    </declare-styleable>
-
-    <declare-styleable name="ClearableEditText">
-        <attr name="clearIconDrawable" format="color|reference" />
-        <attr name="clearIconDrawWhenFocused" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="CustomRatingBar">
