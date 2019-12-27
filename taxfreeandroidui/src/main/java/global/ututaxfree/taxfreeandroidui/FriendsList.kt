@@ -5,273 +5,273 @@ import java.util.*
 /**
  * Created by Likhitha on 20/12/2019
  */
-class Contact(val index: String, val name: String) {
+class FriendsList(val index: String, val name: String) {
 
     companion object {
         @JvmStatic
-        val englishContacts: List<Contact>
+        val englishContacts: List<FriendsList>
             get() {
-                val contacts: MutableList<Contact> = ArrayList()
+                val contacts: MutableList<FriendsList> = ArrayList()
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "A",
                         "Abbey"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "A",
                         "Alex"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "A",
                         "Amy"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "A",
                         "Anne"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "B",
                         "Betty"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "B",
                         "Bob"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "B",
                         "Brian"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "C",
                         "Carl"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "C",
                         "Candy"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "C",
                         "Carlos"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "C",
                         "Charles"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "C",
                         "Christina"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "D",
                         "David"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "D",
                         "Daniel"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "E",
                         "Elizabeth"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "E",
                         "Eric"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "E",
                         "Eva"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "F",
                         "Frances"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "F",
                         "Frank"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "G",
                         "Germany"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "G",
                         "Greece"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "G",
                         "Georgia"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "G",
                         "Grenada"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "I",
                         "Ivy"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "J",
                         "James"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "J",
                         "John"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "J",
                         "Jessica"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "K",
                         "Karen"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "K",
                         "Karl"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "K",
                         "Kim"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "L",
                         "Leon"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "L",
                         "Lisa"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "P",
                         "Paul"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "P",
                         "Peter"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "S",
                         "Sarah"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "S",
                         "Steven"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "R",
                         "Robert"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "R",
                         "Ryan"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "T",
                         "Tom"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "T",
                         "Tony"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "W",
                         "Wendy"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "W",
                         "Will"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "W",
                         "William"
                     )
                 )
                 contacts.add(
-                    Contact(
+                    FriendsList(
                         "Z",
                         "Zoe"
                     )

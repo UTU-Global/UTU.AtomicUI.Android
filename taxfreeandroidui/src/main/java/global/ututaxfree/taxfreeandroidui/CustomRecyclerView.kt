@@ -10,19 +10,19 @@ import java.util.*
 class CustomRecyclerView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : RelativeLayout(context, attrs, defStyleAttr) {
-    private val contacts = ArrayList<Contact>()
+    private val contacts = ArrayList<FriendsList>()
     init {
         initView()
         initData()
     }
     private fun initView() {
-        val customView =  inflate(context, R.layout.activity_contacts, this)
+        val customView =  inflate(context, R.layout.activity_friendslist, this)
         val rvContacts = customView.findViewById<RecyclerView>(R.id.rv_contacts)
         rvContacts!!.layoutManager = LinearLayoutManager(context)
         rvContacts.adapter =
-            ContactsAdapter(
+            FriendsListAdapter(
                 contacts,
-                R.layout.item_contacts
+                R.layout.item_friendslist
             )
         val sideBar = customView.findViewById<WaveSideBar>(R.id.side_bar)
         sideBar!!.setOnSelectIndexItemListener(object : WaveSideBar.OnSelectIndexItemListener {
@@ -42,7 +42,7 @@ class CustomRecyclerView @JvmOverloads constructor(
 
 
     private fun initData() {
-        contacts.addAll(Contact.englishContacts)
+        contacts.addAll(FriendsList.englishContacts)
     }
 
 }

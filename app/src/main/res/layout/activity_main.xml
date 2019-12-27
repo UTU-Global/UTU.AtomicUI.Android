@@ -17,11 +17,11 @@
     <!--        app:outlined="true"-->
     <!--        app:size="big" />-->
 
-    <!--    <global.ututaxfree.taxfreeandroidui.CustomRecyclerView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent" />-->
+        <global.ututaxfree.taxfreeandroidui.CustomRecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-  <com.example.customratingbar.CustomRatingBar
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"/>
+<!--  <com.example.customratingbar.CustomRatingBar-->
+<!--      android:layout_width="wrap_content"-->
+<!--      android:layout_height="wrap_content"/>-->
 </RelativeLayout>

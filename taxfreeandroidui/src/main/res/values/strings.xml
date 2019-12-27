@@ -2,4 +2,5 @@
     <string name="app_name">TaxFreeAndroidUI</string>
     <string name="close_toast">Close Toast</string>
     <string name="feedback_rating_value">%1$d star</string>
+    <string name="search">Search</string>
 </resources>

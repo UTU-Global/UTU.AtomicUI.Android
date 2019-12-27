@@ -24,6 +24,16 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="ClearableTextInput" parent="ClearableEditText">
+        <attr name="clearIconDrawable" />
+        <attr name="clearIconDrawWhenFocused" />
+    </declare-styleable>
+
+    <declare-styleable name="ClearableEditText">
+        <attr name="clearIconDrawable" format="color|reference" />
+        <attr name="clearIconDrawWhenFocused" format="boolean" />
+    </declare-styleable>
+
     <declare-styleable name="CustomRatingBar">
         <attr name="maxRating" format="integer" />
         <attr name="filledDrawable" format="integer" />
