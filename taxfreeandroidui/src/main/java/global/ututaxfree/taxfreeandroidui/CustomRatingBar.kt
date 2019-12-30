@@ -12,6 +12,9 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import global.ututaxfree.taxfreeandroidui.R
 
+/**
+ * Created by Likhitha on 24/12/2019
+ */
 
 class CustomRatingBar @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : LinearLayout(context, attrs, defStyleAttr), View.OnClickListener {
 
