@@ -64,6 +64,7 @@
         android:layout_height="match_parent"
         android:letterSpacing="0.05"
         android:lineSpacingExtra="5sp"
+        android:layout_below="@+id/selected_friend_recyclerview"
         android:paddingStart="8dp"
         android:paddingEnd="16dp"
         app:sidebar_text_color="#666666"

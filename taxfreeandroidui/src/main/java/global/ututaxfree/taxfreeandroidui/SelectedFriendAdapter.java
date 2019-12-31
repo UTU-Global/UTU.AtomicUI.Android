@@ -1,12 +1,13 @@
 package global.ututaxfree.taxfreeandroidui;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,23 +18,21 @@ import java.util.ArrayList;
  */
 public class SelectedFriendAdapter extends RecyclerView.Adapter<SelectedFriendAdapter.ContactsViewHolder> {
 
-    private ArrayList<String> selectedFriends;
+    private ArrayList<SelectedFriend> selectedFriends;
     private int layoutId;
     Context context;
-    AdapterListener listener;
-    int selectedPosition;
+    RemoveFriendListener listener;
 
-    public SelectedFriendAdapter(Context context, ArrayList<String> selectedFriends, int layoutId, int selectedPosition
+    public SelectedFriendAdapter(Context context, ArrayList<SelectedFriend> selectedFriends,
+                                 int layoutId, RemoveFriendListener listener
     ) {
         this.selectedFriends = selectedFriends;
         this.layoutId = layoutId;
         this.context = context;
-        this.selectedPosition = selectedPosition;
         this.listener = listener;
-        Log.d("fjgdddd", selectedFriends.toString());
-
     }
 
+    @NonNull
     @Override
     public ContactsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
@@ -42,15 +41,15 @@ public class SelectedFriendAdapter extends RecyclerView.Adapter<SelectedFriendAd
     }
 
     @Override
-    public void onBindViewHolder(ContactsViewHolder holder, int position) {
-        selectedFriends.get(position);
-        for (int i = 0; i < selectedFriends.size(); i++) {
-            holder.friendNameTv.setText(selectedFriends.get(i));
-        }
+    public void onBindViewHolder(final ContactsViewHolder holder, int position) {
+        holder.friendNameTv.setText(selectedFriends.get(holder.getAdapterPosition()).getName());
         holder.closeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                listener.onFriendRemoved(selectedFriends.get
+                        (holder.getAdapterPosition()).getPosition());
+             /*   selectedFriends.remove(holder.getAdapterPosition());
+                notifyItemRemoved(holder.getAdapterPosition());*/
             }
         });
     }
@@ -60,15 +59,21 @@ public class SelectedFriendAdapter extends RecyclerView.Adapter<SelectedFriendAd
         return selectedFriends.size();
     }
 
+    public void onUpdateSelectedFriendsList(ArrayList<SelectedFriend> arrayList) {
+        this.selectedFriends = arrayList;
+        notifyDataSetChanged();
+    }
 
     class ContactsViewHolder extends RecyclerView.ViewHolder {
         public AppCompatTextView friendNameTv;
         public ImageView closeImage;
+        public RelativeLayout selectedFriendLayout;
 
         public ContactsViewHolder(View itemView) {
             super(itemView);
-            friendNameTv = (AppCompatTextView) itemView.findViewById(R.id.selected_friend_name);
-            closeImage = (ImageView) itemView.findViewById(R.id.selected_friend_close_image);
+            friendNameTv = itemView.findViewById(R.id.selected_friend_name);
+            closeImage = itemView.findViewById(R.id.selected_friend_close_image);
+            selectedFriendLayout = itemView.findViewById(R.id.selectedFriendLayout);
         }
     }
 }

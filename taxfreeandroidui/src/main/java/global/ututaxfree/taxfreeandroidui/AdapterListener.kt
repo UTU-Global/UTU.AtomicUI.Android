@@ -1,5 +1,5 @@
 package global.ututaxfree.taxfreeandroidui
 
 interface AdapterListener {
-    fun setAdapter(position : Int,storedFriendsNameList: List<String>)
+    fun onAdapterDataChanged(position : Int,storedFriendsNameList: List<SelectedFriend>)
 }

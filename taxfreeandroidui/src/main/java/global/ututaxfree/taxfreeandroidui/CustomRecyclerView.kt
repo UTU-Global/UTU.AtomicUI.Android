@@ -16,8 +16,10 @@ class CustomRecyclerView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : RelativeLayout(context, attrs, defStyleAttr) {
     private val contacts = ArrayList<FriendsList>()
-    private var selectedFriends = ArrayList<String>()
+    private var selectedFriends = ArrayList<SelectedFriend>()
     lateinit var selectedFriendRecyclerview: RecyclerView
+    lateinit var selectedFriendAdapter: SelectedFriendAdapter
+    lateinit var friendsListAdapter: FriendsListAdapter
 
     init {
         initData()
@@ -30,31 +32,37 @@ class CustomRecyclerView @JvmOverloads constructor(
         selectedFriendRecyclerview =
             customView.findViewById<RecyclerView>(R.id.selected_friend_recyclerview)
 
+        selectedFriendRecyclerview.layoutManager = GridLayoutManager(context, 3)
+
+
         rvContacts!!.layoutManager = LinearLayoutManager(context)
-        rvContacts.adapter =
+        friendsListAdapter =
             FriendsListAdapter(
                 context,
                 contacts,
                 R.layout.item_friendslist,
                 object : AdapterListener {
-                    override fun setAdapter( position: Int,storedFriendsNameList: List<String>) {
-                        selectedFriends = storedFriendsNameList as ArrayList<String>
-                        selectedFriendRecyclerview!!.layoutManager = GridLayoutManager(context, 3)
-                        selectedFriendRecyclerview.adapter =
-                            SelectedFriendAdapter(
-                                context, selectedFriends,
-                                R.layout.item_selectedfriend,position
-
-                            )
-
-
+                    override fun onAdapterDataChanged(
+                        position: Int,
+                        storedFriendsNameList: List<SelectedFriend>
+                    ) {
+                        selectedFriends = storedFriendsNameList as ArrayList<SelectedFriend>
+                        selectedFriendAdapter.onUpdateSelectedFriendsList(selectedFriends)
                     }
-
-
-
                 }
 
             )
+        rvContacts.adapter = friendsListAdapter
+
+        selectedFriendAdapter = SelectedFriendAdapter(
+            context, selectedFriends,
+            R.layout.item_selectedfriend, object : RemoveFriendListener {
+                override fun onFriendRemoved(selectedPos: Int) {
+                    friendsListAdapter.onRemoveSelectedFriendsList(selectedPos)
+                }
+            }
+        )
+        selectedFriendRecyclerview.adapter = selectedFriendAdapter
 
         val sideBar = customView.findViewById<WaveSideBar>(R.id.side_bar)
         sideBar!!.setOnSelectIndexItemListener(object : WaveSideBar.OnSelectIndexItemListener {
