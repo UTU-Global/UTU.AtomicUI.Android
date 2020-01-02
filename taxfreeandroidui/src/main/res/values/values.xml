@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="taxFreeStyle" format="reference" />
-    <declare-styleable name="TaxFreeButton">
+    <declare-styleable name="AtomicButton">
         <attr name="size" format="string" />
         <attr name="outlined" format="boolean" />
         <attr name="disabled" format="boolean" />
         <attr name="state" format="string" />
     </declare-styleable>
 
-    <style name="Base.TaxFreeButton" parent="android:Widget.Button">
+    <style name="Base.AtomicButton" parent="android:Widget.Button">
         <item name="size">regular</item>
         <item name="outlined">false</item>
         <item name="disabled">false</item>
     </style>
 
-    <style name="TaxFreeButton" parent="Base.TaxFreeButton" />
+    <style name="AtomicButton" parent="Base.AtomicButton" />
 
 </resources>

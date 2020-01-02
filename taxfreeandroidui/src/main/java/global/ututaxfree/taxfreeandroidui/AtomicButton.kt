@@ -12,15 +12,15 @@ import global.ututaxfree.taxfreeandroidui.utilities.TaxFreeUtils
  * Created by Bharath Simha Gupta on 10/14/2019.
  */
 
-class TaxFreeButton : AppCompatButton {
+class AtomicButton : AppCompatButton {
 
     constructor(context: Context) : super(context) {
-        onInit(context, null, R.style.TaxFreeButton)
+        onInit(context, null, R.style.AtomicButton)
 
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        onInit(context, attrs, R.style.TaxFreeButton)
+        onInit(context, attrs, R.style.AtomicButton)
     }
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
@@ -51,14 +51,14 @@ class TaxFreeButton : AppCompatButton {
         typeface = ResourcesCompat.getFont(context, R.font.notosans_bold)
 
         val atr = context.obtainStyledAttributes(
-            attrs, R.styleable.TaxFreeButton, defStyleAttr, R.style.TaxFreeButton
+            attrs, R.styleable.AtomicButton, defStyleAttr, R.style.AtomicButton
         )
 
-        isOutlined = atr.getBoolean(R.styleable.TaxFreeButton_outlined, false)
-        isDisabled = atr.getBoolean(R.styleable.TaxFreeButton_disabled, false)
+        isOutlined = atr.getBoolean(R.styleable.AtomicButton_outlined, false)
+        isDisabled = atr.getBoolean(R.styleable.AtomicButton_disabled, false)
         onBuildTaxFreeButton()
 
-        when (atr.getString(R.styleable.TaxFreeButton_size)) {
+        when (atr.getString(R.styleable.AtomicButton_size)) {
             SIZE_SMALL -> {
                 width = TaxFreeUtils.pxToDp(108)
                 height = TaxFreeUtils.pxToDp(32)
@@ -80,13 +80,13 @@ class TaxFreeButton : AppCompatButton {
     }
 
     private fun onBuildTaxFreeButton() {
+        isEnabled = !isDisabled
         when (isOutlined) {
             true -> {
                 // Disabled button
                 when (isDisabled) {
                     // Outlined disabled button
                     true -> {
-                        isClickable = false
                         background =
                             ContextCompat.getDrawable(context, R.drawable.outlined_disabled)
 
@@ -98,7 +98,6 @@ class TaxFreeButton : AppCompatButton {
                         )
                     }
                     false -> {
-                        isClickable = true
                         background =
                             ContextCompat.getDrawable(context, R.drawable.outlined_state)
                         setTextColor(
@@ -113,7 +112,6 @@ class TaxFreeButton : AppCompatButton {
             false -> {
                 when (isDisabled) {
                     true -> {
-                        isClickable = false
                         background =
                             ContextCompat.getDrawable(context, R.drawable.combined_disabled)
                         setTextColor(
@@ -124,7 +122,6 @@ class TaxFreeButton : AppCompatButton {
                         )
                     }
                     false -> {
-                        isClickable = true
                         background =
                             ContextCompat.getDrawable(context, R.drawable.combined_state)
                         setTextColor(

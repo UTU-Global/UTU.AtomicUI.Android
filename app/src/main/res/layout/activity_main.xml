@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <global.ututaxfree.taxfreeandroidui.TaxFreeButton
+    <global.ututaxfree.taxfreeandroidui.AtomicButton
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:id="@+id/taxFreeB"
