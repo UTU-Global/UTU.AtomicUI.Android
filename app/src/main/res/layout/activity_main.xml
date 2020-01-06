@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainLayout"
     android:layout_width="match_parent"
@@ -16,12 +17,25 @@
     <!--        android:visibility="gone"-->
     <!--        app:outlined="true"-->
     <!--        app:size="big" />-->
+    <global.ututaxfree.taxfreeandroidui.pickerview.AtomicPicker
+        android:id="@+id/language"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center|center_horizontal"
+        android:textAlignment="center"
+        app:canLoop="false"
+        app:centerTextColor="#666666"
+        app:drawItemCount="9"
+        app:initPosition="0"
+        app:lineColor="#99000000"
+        app:textSize="24sp"
+        app:topBottomTextColor="#66000000" />
 
-        <global.ututaxfree.taxfreeandroidui.CustomRecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <!-- <global.ututaxfree.taxfreeandroidui.CustomRecyclerView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent" />-->
 
-<!--  <com.example.customratingbar.CustomRatingBar-->
-<!--      android:layout_width="wrap_content"-->
-<!--      android:layout_height="wrap_content"/>-->
+    <!--  <com.example.customratingbar.CustomRatingBar-->
+    <!--      android:layout_width="wrap_content"-->
+    <!--      android:layout_height="wrap_content"/>-->
 </RelativeLayout>
