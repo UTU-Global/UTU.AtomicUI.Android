@@ -17,8 +17,19 @@ class MainActivity : AppCompatActivity() {
             AtomicToast.show(
                 context = applicationContext,
                 view = mainLayout,
-                actionText = "Testing Snackbar!!!! asdukgfas dlfasld fasdf asdbfoasbdflvasjbdlvkbasld bvlasbdlas dlfab sdlfbalsjdbflasdf dlfasld fasdf asdbfoasbdflvasjbdlvkbasld bvlasbdlas dlfab sdlfbalsjdbflasdf dlfasld fasdf asdbfoasbdflvasjbdlvkbasld bvlasbdlas dlfab sdlfbalsjdbflasdf dlfasld fasdf asdbfoasbdflvasjbdlvkbasld bvlasbdlas dlfab sdlfbalsjdbflasdf",
+                actionText = "Testing Snackbar!!!!",
                 actionType = AtomicToast.TYPE_ERROR,
+                listener = object : ToastClosedListener {
+                    override fun onToastClosed() {
+                        Toast.makeText(applicationContext, "Toast closed", Toast.LENGTH_LONG).show()
+                    }
+                })
+
+            AtomicToast.show(
+                context = applicationContext,
+                view = mainLayout,
+                actionText = "Testing Snackbar!!!!",
+                actionType = AtomicToast.TYPE_WARNING,
                 listener = object : ToastClosedListener {
                     override fun onToastClosed() {
                         Toast.makeText(applicationContext, "Toast closed", Toast.LENGTH_LONG).show()
