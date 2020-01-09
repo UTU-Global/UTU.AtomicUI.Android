@@ -7,24 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!--    <global.ututaxfree.taxfreeandroidui.AtomicButton-->
-    <!--        style="?android:attr/borderlessButtonStyle"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:id="@+id/taxFreeB"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_centerInParent="true"-->
-    <!--        android:text="Button"-->
-    <!--        app:outlined="true"-->
-    <!--        app:size="big" />-->
-    <global.ututaxfree.taxfreeandroidui.AtomicSwitch
+    <global.ututaxfree.taxfreeandroidui.AtomicButton
+        android:id="@+id/taxFreeB"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:sb_checked_color="#00b398"
-        app:sb_show_indicator="false"
-        app:sb_shadow_color="#d5d5d5"
-        app:sb_button_color="#ffffff"
-        app:sb_uncheck_color="#d5d5d5"
-        app:sb_background="#d5d5d5"
-        app:sb_uncheckcircle_width="16dp"
-       />
+        android:layout_centerInParent="true"
+        android:text="Button"
+        app:outlined="true"
+        app:size="big" />
 </RelativeLayout>

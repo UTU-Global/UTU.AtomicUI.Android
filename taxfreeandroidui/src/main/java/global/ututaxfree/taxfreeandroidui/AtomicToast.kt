@@ -1,14 +1,16 @@
 package global.ututaxfree.taxfreeandroidui
 
 import android.content.Context
+import android.os.Handler
+import android.text.Layout
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewTreeObserver
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import androidx.appcompat.widget.AppCompatTextView
 import com.androidadvance.topsnackbar.TSnackbar
-import global.ututaxfree.taxfreeandroidui.utilities.TaxFreeUtils
 
 /**
  * Created by Bharath Simha Gupta on 10/25/2019.
@@ -22,13 +24,17 @@ class AtomicToast {
         const val TYPE_WARNING = "regular"
         const val TYPE_ERROR = "big"
 
+        private var isEllipsized = false
+
+        @JvmStatic
         fun show(
             context: Context, view: View, actionText: String, actionType: String,
             listener: ToastClosedListener?
         ) {
-            show(context, view, actionText, actionType, listener, false)
+            show(context, view, actionText, actionType, listener, true)
         }
 
+        @JvmStatic
         fun show(
             context: Context, view: View, actionText: String, actionType: String,
             listener: ToastClosedListener?, isCloseButton: Boolean
@@ -41,19 +47,27 @@ class AtomicToast {
             listener: ToastClosedListener?, isCloseButton: Boolean
         ) {
 
-            val snackBar: TSnackbar = TSnackbar.make(view, "", TSnackbar.LENGTH_LONG)
+            val handler = Handler()
+            val snackBar: TSnackbar = TSnackbar.make(view, "", TSnackbar.LENGTH_INDEFINITE)
             val customView =
                 (context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
                     .inflate(R.layout.utu_toast, null)
             val snackBarView = snackBar.view as TSnackbar.SnackbarLayout
             val parentParams = snackBarView.layoutParams as FrameLayout.LayoutParams
             parentParams.width = FrameLayout.LayoutParams.MATCH_PARENT
-            parentParams.height = TaxFreeUtils.pxToDp(48)
+            parentParams.height = FrameLayout.LayoutParams.WRAP_CONTENT
             parentParams.gravity = Gravity.TOP
             snackBarView.layoutParams = parentParams
 
             val textView = customView.findViewById<AppCompatTextView>(R.id.toastText)
             textView.text = actionText
+
+            textView.setOnClickListener {
+                if (isEllipsized) {
+                    handler.removeCallbacksAndMessages(null)
+                    textView.maxLines = 4
+                }
+            }
 
             val closeToast = customView.findViewById<ImageButton>(R.id.closeToast)
             if (isCloseButton) {
@@ -88,20 +102,35 @@ class AtomicToast {
             }
 
             closeToast.setOnClickListener {
+                handler.removeCallbacksAndMessages(null)
                 snackBar.dismiss()
             }
 
             snackBar.setCallback(object : TSnackbar.Callback() {
                 override fun onDismissed(snackbar: TSnackbar?, event: Int) {
                     super.onDismissed(snackbar, event)
+                    handler.removeCallbacksAndMessages(null)
                     listener?.onToastClosed()
                 }
             })
 
             snackBarView.setPadding(0, 0, 0, 0)
             snackBarView.addView(customView, 0)
-            snackBar.show()
 
+            val vto: ViewTreeObserver = textView.viewTreeObserver
+            vto.addOnGlobalLayoutListener {
+                val layout: Layout = textView.layout
+                val lines = layout.lineCount
+                if (lines > 0) {
+                    if (layout.getEllipsisCount
+                            (lines - 1) > 0
+                    ) {
+                        isEllipsized = true
+                    }
+                }
+            }
+            handler.postDelayed({ snackBar.dismiss() }, 2500)
+            snackBar.show()
         }
     }
 }
