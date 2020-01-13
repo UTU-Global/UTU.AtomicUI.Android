@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
             toast = AtomicToast(
                 context = applicationContext,
                 view = mainLayout,
-                actionText = "Testing Snackbar!!!! asdyfgoas a uasdifuapsudhf oash opfiasdpo iasoi foaisdj oasij askdgf alshfasbdf asd",
+                actionText = "Testing Snackbar!!!",
                 actionType = AtomicToast.TYPE_ERROR,
                 listener = object : ToastClosedListener {
                     override fun onToastClosed() {
