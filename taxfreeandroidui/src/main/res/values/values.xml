@@ -16,4 +16,14 @@
 
     <style name="AtomicButton" parent="Base.AtomicButton" />
 
+    <declare-styleable name="AtomicBubble">
+        <attr name="value" format="string" />
+    </declare-styleable>
+
+    <style name="Base.AtomicBubble" parent="Widget.AppCompat.TextView">
+        <item name="value">empty</item>
+    </style>
+
+    <style name="AtomicBubble" parent="Base.AtomicBubble" />
+
 </resources>

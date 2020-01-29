@@ -1,27 +1,82 @@
 package global.ututaxfree.taxfreeandroidui
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
+import android.text.TextUtils
 import android.util.AttributeSet
-import android.widget.RelativeLayout
+import android.view.Gravity
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
+import global.ututaxfree.taxfreeandroidui.utilities.TaxFreeUtils
 
-class AtomicBubble @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : RelativeLayout(context, attrs, defStyleAttr) {
-    lateinit var textView: AppCompatTextView
+@SuppressLint("ViewConstructor")
+class AtomicBubble : AppCompatTextView {
 
-    init {
-        initView()
+    private var value: String? = null
+
+    constructor(context: Context, value: String) : super(context) {
+        onInit(context, null, R.style.AtomicBubble, value)
     }
 
-    private fun initView() {
-        val customView = inflate(context, R.layout.atomic_bubble, this)
-        textView = customView.findViewById<AppCompatTextView>(R.id.bubbleText)
+    constructor(
+        context: Context, attrs: AttributeSet,
+        value: String
+    ) : super(context, attrs) {
+        onInit(context, attrs, R.style.AtomicBubble, value)
+    }
 
-        if (textView.length() > 2) {
+    constructor(
+        context: Context, attrs: AttributeSet, defStyleAttr: Int,
+        value: String
+    ) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
+        onInit(context, attrs, defStyleAttr, value)
+    }
+
+    private fun onInit(
+        context: Context, attrs: AttributeSet?, defStyleAttr: Int,
+        bubbleValue: String
+    ) {
+        if (!TextUtils.isEmpty(bubbleValue)) {
+            value = bubbleValue
+        } else {
+            val atr = context.obtainStyledAttributes(
+                attrs, R.styleable.AtomicBubble, defStyleAttr, R.style.AtomicBubble
+            )
+            value = atr.getString(R.styleable.AtomicBubble_value)
+            atr.recycle()
         }
+        width = TaxFreeUtils.pxToDp(32)
+        height = TaxFreeUtils.pxToDp(32)
+        maxLines = 1
+        background = ContextCompat.getDrawable(
+            context,
+            R.drawable.notification_bubble_bg
+        )
+        setTextColor(Color.parseColor("#009681"))
+        textSize = 14.toFloat()
+        typeface = ResourcesCompat.getFont(context, R.font.notosans_bold)
+        gravity = Gravity.CENTER
 
+        onBuildBubble()
     }
 
+    private fun onBuildBubble() {
+        if (!TextUtils.isEmpty(value) && !value.equals("empty")) {
+            if (value!!.length > 2) {
+                value = "99+"
+            }
+            text = value
+        }
+    }
 
+    fun setValue(bubbleValue: String) {
+        value = bubbleValue
+        onBuildBubble()
+    }
 }
