@@ -21,26 +21,24 @@ class AtomicBubble : AppCompatTextView {
     }
 
     constructor(
-        context: Context, attrs: AttributeSet,
-        value: String
+        context: Context, attrs: AttributeSet
     ) : super(context, attrs) {
-        onInit(context, attrs, R.style.AtomicBubble, value)
+        onInit(context, attrs, R.style.AtomicBubble, null)
     }
 
     constructor(
-        context: Context, attrs: AttributeSet, defStyleAttr: Int,
-        value: String
+        context: Context, attrs: AttributeSet, defStyleAttr: Int
     ) : super(
         context,
         attrs,
         defStyleAttr
     ) {
-        onInit(context, attrs, defStyleAttr, value)
+        onInit(context, attrs, defStyleAttr, null)
     }
 
     private fun onInit(
         context: Context, attrs: AttributeSet?, defStyleAttr: Int,
-        bubbleValue: String
+        bubbleValue: String?
     ) {
         if (!TextUtils.isEmpty(bubbleValue)) {
             value = bubbleValue
