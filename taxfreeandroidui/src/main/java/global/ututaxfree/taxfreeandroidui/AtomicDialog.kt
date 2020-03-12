@@ -46,7 +46,7 @@ class AtomicDialog(
         val transparent = ColorDrawable(Color.TRANSPARENT)
         val inset = InsetDrawable(transparent, TaxFreeUtils.pxToDp(16))
         dialog!!.window!!.setBackgroundDrawable(inset)
-
+        dialog!!.setCancelable(false)
         if (!TextUtils.isEmpty(title)) {
             binding.title.text = title
 
