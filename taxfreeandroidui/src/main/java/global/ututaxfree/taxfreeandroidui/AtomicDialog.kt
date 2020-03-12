@@ -19,7 +19,7 @@ import global.ututaxfree.taxfreeandroidui.utilities.TaxFreeUtils
 class AtomicDialog(
     private var title: String?, private var message: String,
     private var positiveTitle: String,
-    private var negativeTitle: String,
+    private var negativeTitle: String?,
     private var positiveListener: OnDialogButtonClickListener?,
     private var isDeleteUI: Boolean
 ) : DialogFragment() {
@@ -72,11 +72,15 @@ class AtomicDialog(
         }
         binding.message.text = message
         binding.positive.text = positiveTitle
-        binding.negative.text = negativeTitle
+        if (!TextUtils.isEmpty(negativeTitle)) {
+            binding.negative.text = negativeTitle
+            binding.negative.setOnClickListener {
+                dialog!!.dismiss()
+                positiveListener?.onButtonClick(false)
+            }
 
-        binding.negative.setOnClickListener {
-            dialog!!.dismiss()
-            positiveListener?.onButtonClick(false)
+        } else {
+            binding.negative.visibility = View.GONE
         }
 
         binding.positive.setOnClickListener {
