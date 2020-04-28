@@ -4,8 +4,7 @@
   
   <a href="https://jitpack.io/#UTU-Global/Mobile.Android.UI"> <img src="https://jitpack.io/v/UTU-Global/Mobile.Android.UI.svg" /></a>
 
-  <br />
-    A component library that can use the custom views for all Tax Free related applications
+A component library that can use the custom views for all Tax Free related applications
 </p>
 
 ## How to integrate into your app?
