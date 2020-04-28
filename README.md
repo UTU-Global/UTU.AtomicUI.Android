@@ -4,6 +4,26 @@
   
   <a href="https://jitpack.io/#UTU-Global/Mobile.Android.UI"> <img src="https://jitpack.io/v/UTU-Global/Mobile.Android.UI.svg" /></a>
 
-  <br /><br />
-    A simple library that can connect your autocomplete edittext to Google's places api
+  <br />
+    A component library that can use the custom views for all Tax Free related applications
 </p>
+
+## How to integrate into your app?
+Integrating the project is simple a refined all you need to do is follow the below steps
+
+Step 1. Add the JitPack repository to your build file. Add it in your root build.gradle at the end of repositories:
+
+```java
+allprojects {
+  repositories {
+    ...
+    maven { url "https://jitpack.io" }
+  }
+}
+```
+Step 2. Add the dependency
+```java
+dependencies {
+      implementation 'com.github.UTU-Global:Mobile.Android.UI:<latest-version>'
+}
+```
