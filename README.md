@@ -49,3 +49,37 @@ And, you can always change the values from your codebase too
 button.setDisabled(false) --> To enable the button
 .....
 ``` 
+
+## AtomicTextInput (EditText)
+``` xml
+.....
+ <global.ututaxfree.taxfreeandroidui.AtomicTextInput
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"/>
+.....
+```
+## AtomicDialog 
+Dialog with the TaxFree components UI. 
+The isDeleteUI boolean value will change the UI of the dialog to the Delete component UI
+
+``` kotlin
+AtomicDialog("title",
+"message",
+"positiveButtonText",
+"negativeButtonText",
+listenerForClickActions,
+isDeleteUI(boolean))
+.show(supportFragmentManager, "Tag")
+
+```
+and the listener will be,
+``` kotlin
+object : AtomicDialog.OnDialogButtonClickListener {
+         override fun onButtonClick(isPositive: Boolean) {
+                    if (isPositive) {
+                        // code after user tap on Positive button
+                        // On tap on negative button, dialog will close
+                      }
+        }
+  }
+  ```
