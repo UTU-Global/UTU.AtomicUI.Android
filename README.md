@@ -83,3 +83,25 @@ object : AtomicDialog.OnDialogButtonClickListener {
         }
   }
   ```
+
+## AtomicToast
+The TaxFree component Toast
+
+``` kotlin
+AtomicToast(
+   context, view,
+   "message",
+   ToastType, listener
+ ).show()
+ 
+ ToastType will have three types
+ AtomicToast.TYPE_SUCCESS |  AtomicToast.TYPE_WARNING |  AtomicToast.TYPE_ERROR
+ 
+ listner is the ToastClosedListener
+   object : ToastClosedListener {
+           override fun onToastClosed() {
+                 // Do whatever
+          }
+  })
+  
+  ```
