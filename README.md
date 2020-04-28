@@ -27,3 +27,26 @@ dependencies {
       implementation 'com.github.UTU-Global:Mobile.Android.UI:<latest-version>'
 }
 ```
+
+## How to use this component library?
+Okay seems like you integrated the library in your project but **how do you use it**? 
+
+## AtomicButton
+Well its really easy just add the following to your xml design
+
+``` xml
+.....
+ <global.ututaxfree.taxfreeandroidui.AtomicButton
+     android:id="@+id/button"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     app:disabled="true | false"
+     app:size="big | regular | small" />
+.....
+```
+And, you can always change the values from your codebase too
+``` kotlin
+..... 
+button.setDisabled(false) --> To enable the button
+.....
+``` 
