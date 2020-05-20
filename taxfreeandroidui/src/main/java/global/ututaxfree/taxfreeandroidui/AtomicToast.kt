@@ -3,10 +3,7 @@ package global.ututaxfree.taxfreeandroidui
 import android.content.Context
 import android.os.Handler
 import android.text.Layout
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewTreeObserver
+import android.view.*
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import androidx.appcompat.widget.AppCompatTextView
@@ -38,10 +35,12 @@ class AtomicToast(
             (context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
                 .inflate(R.layout.utu_toast, null)
         val snackBarView = snackBar!!.view as TSnackbar.SnackbarLayout
-        val parentParams = snackBarView.layoutParams as FrameLayout.LayoutParams
-        parentParams.width = FrameLayout.LayoutParams.MATCH_PARENT
-        parentParams.height = FrameLayout.LayoutParams.WRAP_CONTENT
-        parentParams.gravity = Gravity.TOP
+        val parentParams = snackBarView.layoutParams as ViewGroup.LayoutParams
+        parentParams.width = ViewGroup.LayoutParams.MATCH_PARENT
+        parentParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
+        if (parentParams is FrameLayout.LayoutParams) {
+            parentParams.gravity = Gravity.TOP
+        }
         snackBarView.layoutParams = parentParams
 
         val textView = customView.findViewById<AppCompatTextView>(R.id.toastText)
