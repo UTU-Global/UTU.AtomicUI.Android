@@ -36,7 +36,7 @@ dependencies {
 
     implementation 'com.androidadvance:topsnackbar:1.1.1'
 
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0'
 
     //Loader
     implementation 'com.wang.avi:library:2.1.3'
