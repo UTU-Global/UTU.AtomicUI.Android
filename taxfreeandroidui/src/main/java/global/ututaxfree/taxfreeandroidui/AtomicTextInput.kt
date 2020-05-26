@@ -23,7 +23,7 @@ import com.google.android.material.textfield.TextInputEditText
 class AtomicTextInput @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = R.attr.textInputStyle
+    defStyleAttr: Int = R.attr.editTextStyle
 ) :
     TextInputEditText(context, attrs, defStyleAttr), TextWatcher {
 
