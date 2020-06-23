@@ -32,7 +32,6 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-
             <RelativeLayout
                 android:id="@+id/formLayout"
                 android:layout_width="match_parent"
