@@ -13,24 +13,57 @@ import com.androidadvance.topsnackbar.TSnackbar
  * Created by Bharath Simha Gupta on 10/25/2019.
  */
 
-class AtomicToast(
-    private var context: Context,
-    private var view: View,
-    private var actionText: String,
-    private var actionType: String,
+class AtomicToast {
+
+    constructor(
+        context: Context,
+        view: View,
+        actionText: String,
+        actionType: String,
+        listener: ToastClosedListener?,
+        isIndefinite: Boolean
+    ) {
+        this.context = context
+        this.mView = view
+        this.actionText = actionText
+        this.actionType = actionType
+        this.listener = listener
+        this.isIndefinite = isIndefinite
+        onBuildToast()
+    }
+
+    constructor(
+        context: Context,
+        view: View,
+        actionText: String,
+        actionType: String,
+        listener: ToastClosedListener?
+    ) {
+        this.context = context
+        this.mView = view
+        this.actionText = actionText
+        this.actionType = actionType
+        this.listener = listener
+        onBuildToast()
+    }
+
+    private var context: Context
+    private var mView: View
+    private var actionText: String
+    private var actionType: String
     private var listener: ToastClosedListener?
-) {
+    private var isIndefinite: Boolean = false
 
     private var isEllipsized = false
     private var snackBar: TSnackbar? = null
 
-    init {
-        onBuildToast()
-    }
+    private var handler: Handler? = null
 
     private fun onBuildToast() {
-        val handler = Handler()
-        snackBar = TSnackbar.make(view, "", TSnackbar.LENGTH_INDEFINITE)
+        if (!isIndefinite) {
+            handler = Handler()
+        }
+        snackBar = TSnackbar.make(mView, "", TSnackbar.LENGTH_INDEFINITE)
         val customView =
             (context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
                 .inflate(R.layout.utu_toast, null)
@@ -48,7 +81,9 @@ class AtomicToast(
 
         textView.setOnClickListener {
             if (isEllipsized) {
-                handler.removeCallbacksAndMessages(null)
+                if (!isIndefinite) {
+                    handler?.removeCallbacksAndMessages(null)
+                }
                 textView.maxLines = 4
             }
         }
@@ -77,7 +112,9 @@ class AtomicToast(
         }
 
         closeToast.setOnClickListener {
-            handler.removeCallbacksAndMessages(null)
+            if (!isIndefinite) {
+                handler?.removeCallbacksAndMessages(null)
+            }
             if (snackBar != null) {
                 snackBar!!.dismiss()
             }
@@ -86,7 +123,9 @@ class AtomicToast(
         snackBar!!.setCallback(object : TSnackbar.Callback() {
             override fun onDismissed(snackbar: TSnackbar?, event: Int) {
                 super.onDismissed(snackbar, event)
-                handler.removeCallbacksAndMessages(null)
+                if (!isIndefinite) {
+                    handler?.removeCallbacksAndMessages(null)
+                }
                 listener?.onToastClosed()
             }
         })
@@ -106,11 +145,13 @@ class AtomicToast(
                 }
             }
         }
-        handler.postDelayed({
-            if (snackBar != null) {
-                snackBar!!.dismiss()
-            }
-        }, 2500)
+        if (!isIndefinite) {
+            handler?.postDelayed({
+                if (snackBar != null) {
+                    snackBar!!.dismiss()
+                }
+            }, 2500)
+        }
     }
 
     fun show() {
