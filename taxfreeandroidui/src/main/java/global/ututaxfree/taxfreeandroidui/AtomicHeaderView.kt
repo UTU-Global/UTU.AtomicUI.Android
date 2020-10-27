@@ -102,7 +102,7 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
                     BLACK -> {
                         header.findViewById<AppCompatTextView>(R.id.headerText)
                             .setTextColor(Color.BLACK)
-                        navigationUpButton.setImageResource(R.drawable.ic_close)
+                        navigationUpButton.setImageResource(R.drawable.ic_close_black)
                     }
                 }
             }
