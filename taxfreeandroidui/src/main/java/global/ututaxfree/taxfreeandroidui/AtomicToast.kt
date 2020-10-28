@@ -79,14 +79,14 @@ class AtomicToast {
         val textView = customView.findViewById<AppCompatTextView>(R.id.toastText)
         textView.text = actionText
 
-        textView.setOnClickListener {
+       /* textView.setOnClickListener {
             if (isEllipsized) {
                 if (!isIndefinite) {
                     handler?.removeCallbacksAndMessages(null)
                 }
                 textView.maxLines = 4
             }
-        }
+        }*/
 
         val closeToast = customView.findViewById<ImageButton>(R.id.closeToast)
 
