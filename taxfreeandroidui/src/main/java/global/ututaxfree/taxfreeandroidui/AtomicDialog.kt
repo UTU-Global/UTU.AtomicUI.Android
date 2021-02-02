@@ -56,10 +56,10 @@ class AtomicDialog(
 
         if (isDeleteUI) {
             binding.positive.setTextColor(
-                Color.parseColor("#FFFFFF")
+                ContextCompat.getColor(context!!, R.color.whiteColor)
             )
             binding.negative.setTextColor(
-                Color.parseColor("#e33d30")
+                ContextCompat.getColor(context!!, R.color.redColor)
             )
             binding.positive.background = ContextCompat.getDrawable(
                 context!!,

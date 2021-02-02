@@ -5,14 +5,14 @@
         android:viewportWidth="25"
         android:viewportHeight="25">
     <path
-            android:fillColor="#fff"
+            android:fillColor="@color/ic_whiteColor"
             android:pathData="M12.5,12.5m-12.5,0a12.5,12.5 0,1 1,25 0a12.5,12.5 0,1 1,-25 0"
-            android:strokeColor="#00000000"
+            android:strokeColor="@color/ic_accBlackColor"
             android:strokeLineJoin="round" />
     <path
-            android:fillColor="#00000000"
+            android:fillColor="@color/ic_accBlackColor"
             android:pathData="M12.5,12.5m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0"
             android:strokeWidth="1"
-            android:strokeColor="#d5d5d5"
+            android:strokeColor="@color/ic_dividerColor"
             android:strokeLineJoin="round" />
 </vector>

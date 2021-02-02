@@ -4,7 +4,7 @@
     android:id="@+id/coreHeaderLayout"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@android:color/white">
+    android:background="@color/whiteColor">
 
     <ImageButton
         android:id="@+id/headerAction"
@@ -27,7 +27,7 @@
         android:fontFamily="@font/notosans_bold"
         android:gravity="center"
         android:maxLines="1"
-        android:textColor="#1e1e20"
+        android:textColor="@color/headingColor"
         android:textSize="16sp" />
 
     <androidx.appcompat.widget.AppCompatTextView
