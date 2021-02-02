@@ -40,6 +40,7 @@
     <color name="ic_titleColor">#727272</color>
     <color name="descColor">#a9a9a9</color>
     <color name="ic_descColor">#a9a9a9</color>
+    <color name="ic_checkboxborderColor">#282828</color>
     <color name="appColor">#00b398</color>
     <color name="ic_appColor">#00b398</color>
     <color name="dividerColor">#d5d5d5</color>
