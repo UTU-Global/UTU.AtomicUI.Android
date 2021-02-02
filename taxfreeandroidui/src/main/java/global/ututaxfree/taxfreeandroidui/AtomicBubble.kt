@@ -56,7 +56,7 @@ class AtomicBubble : AppCompatTextView {
             context,
             R.drawable.notification_bubble_bg
         )
-        setTextColor(Color.parseColor("#009681"))
+        setTextColor(ContextCompat.getColor(context, R.color.colorPrimary))
         textSize = 14.toFloat()
         typeface = ResourcesCompat.getFont(context, R.font.notosans_bold)
         gravity = Gravity.CENTER

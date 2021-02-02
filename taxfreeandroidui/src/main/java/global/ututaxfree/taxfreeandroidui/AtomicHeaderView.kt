@@ -11,6 +11,7 @@ import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.content.ContextCompat
 
 /**
  * Created by Bharath Simha Gupta on 2019-10-27.
@@ -78,12 +79,12 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
                 when (a.getInt(R.styleable.AtomicHeaderView_actionIconColor, BLACK)) {
                     WHITE -> {
                         header.findViewById<AppCompatTextView>(R.id.headerText)
-                            .setTextColor(Color.WHITE)
+                            .setTextColor(ContextCompat.getColor(context!!, R.color.whiteHeaderTextColor))
                         navigationUpButton.setImageResource(R.drawable.ic_back_white)
                     }
                     BLACK -> {
                         header.findViewById<AppCompatTextView>(R.id.headerText)
-                            .setTextColor(Color.BLACK)
+                            .setTextColor( ContextCompat.getColor(context!!, R.color.blackHeaderTextColor))
                         navigationUpButton.setImageResource(R.drawable.ic_back_black)
                     }
                 }
@@ -92,7 +93,7 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
                 when (a.getInt(R.styleable.AtomicHeaderView_actionIconColor, BLACK)) {
                     WHITE -> {
                         header.findViewById<AppCompatTextView>(R.id.headerText)
-                            .setTextColor(Color.WHITE)
+                            .setTextColor(ContextCompat.getColor(context!!, R.color.whiteHeaderTextColor))
                         if (isTransparent) {
                             navigationUpButton.setImageResource(R.drawable.ic_close_scan)
                         } else {
@@ -101,7 +102,7 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
                     }
                     BLACK -> {
                         header.findViewById<AppCompatTextView>(R.id.headerText)
-                            .setTextColor(Color.BLACK)
+                            .setTextColor( ContextCompat.getColor(context!!, R.color.blackHeaderTextColor))
                         navigationUpButton.setImageResource(R.drawable.ic_close_black)
                     }
                 }

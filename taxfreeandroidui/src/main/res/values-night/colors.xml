@@ -28,18 +28,18 @@
     <color name="colorAccent">#00B398</color>
 
     <color name="whiteColor">#ffffff</color>
-    <color name="whiteColor1">#ffffff</color>
+    <color name="whiteColor1">#1e1e20</color>
     <color name="whiteHeaderTextColor">#ffffff</color>
     <color name="ic_whiteColor">#ffffff</color>
     <color name="blackColor">#000000</color>
-    <color name="blackHeaderTextColor">#000000</color>
-    <color name="ic_blackColor">#000000</color>
-    <color name="headingColor">#1e1e20</color>
-    <color name="ic_headingColor">#1e1e20</color>
-    <color name="titleColor">#999999</color>
-    <color name="ic_titleColor">#999999</color>
-    <color name="descColor">#666666</color>
-    <color name="ic_descColor">#666666</color>
+    <color name="blackHeaderTextColor">#d5d5d5</color>
+    <color name="ic_blackColor">#d5d5d5</color>
+    <color name="headingColor">#d5d5d5</color>
+    <color name="ic_headingColor">#d5d5d5</color>
+    <color name="titleColor">#727272</color>
+    <color name="ic_titleColor">#727272</color>
+    <color name="descColor">#a9a9a9</color>
+    <color name="ic_descColor">#a9a9a9</color>
     <color name="ic_checkboxborderColor">#282828</color>
     <color name="appColor">#00b398</color>
     <color name="ic_appColor">#00b398</color>
