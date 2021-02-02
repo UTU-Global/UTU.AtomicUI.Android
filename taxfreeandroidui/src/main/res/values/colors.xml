@@ -28,8 +28,11 @@
     <color name="colorAccent">#00B398</color>
 
     <color name="whiteColor">#ffffff</color>
+    <color name="whiteColor1">#ffffff</color>
+    <color name="whiteHeaderTextColor">#ffffff</color>
     <color name="ic_whiteColor">#ffffff</color>
     <color name="blackColor">#000000</color>
+    <color name="blackHeaderTextColor">#000000</color>
     <color name="ic_blackColor">#000000</color>
     <color name="headingColor">#1e1e20</color>
     <color name="ic_headingColor">#1e1e20</color>

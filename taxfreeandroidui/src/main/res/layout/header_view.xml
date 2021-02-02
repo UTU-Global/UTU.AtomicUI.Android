@@ -4,7 +4,7 @@
     android:id="@+id/coreHeaderLayout"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/whiteColor">
+    android:background="@color/whiteColor1">
 
     <ImageButton
         android:id="@+id/headerAction"
