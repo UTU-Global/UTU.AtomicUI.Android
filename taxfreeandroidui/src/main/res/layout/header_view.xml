@@ -1,50 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/coreHeaderLayout"
+    android:id="@+id/my_toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/colorWhite1">
+    android:background="@color/colorWhite1"
+    android:elevation="0dp"
+    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-    <ImageButton
-        android:id="@+id/headerAction"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/coreHeaderLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="?android:attr/actionBarItemBackground"
-        android:contentDescription="@string/close" />
+        android:background="@color/colorWhite1"
+        android:fitsSystemWindows="true">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/headerText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:ellipsize="end"
-        android:fontFamily="@font/notosans_bold"
-        android:gravity="center"
-        android:maxLines="1"
-        android:textColor="@color/headerColor"
-        android:textSize="16sp" />
+        <ImageButton
+            android:id="@+id/headerAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="?android:attr/actionBarItemBackground"
+            android:contentDescription="@string/close" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/headerMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:background="?android:attr/actionBarItemBackground"
-        android:fontFamily="@font/notosans_bold"
-        android:textAllCaps="false"
-        android:textColor="@color/colorAccent"
-        android:textSize="14sp"
-        android:visibility="visible"
-        tools:ignore="RelativeOverlap" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/headerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:fontFamily="@font/notosans_bold"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/headerColor"
+            android:textSize="16sp" />
 
-</RelativeLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/headerMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="?android:attr/actionBarItemBackground"
+            android:fontFamily="@font/notosans_bold"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp"
+            android:visibility="visible"
+            tools:ignore="RelativeOverlap" />
+
+    </RelativeLayout>
+</androidx.appcompat.widget.Toolbar>
