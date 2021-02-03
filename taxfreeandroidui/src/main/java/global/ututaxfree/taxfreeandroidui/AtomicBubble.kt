@@ -2,7 +2,6 @@ package global.ututaxfree.taxfreeandroidui
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.Gravity
@@ -56,7 +55,7 @@ class AtomicBubble : AppCompatTextView {
             context,
             R.drawable.notification_bubble_bg
         )
-        setTextColor(ContextCompat.getColor(context, R.color.colorPrimary))
+        setTextColor(ContextCompat.getColor(context, R.color.primaryColor))
         textSize = 14.toFloat()
         typeface = ResourcesCompat.getFont(context, R.font.notosans_bold)
         gravity = Gravity.CENTER
