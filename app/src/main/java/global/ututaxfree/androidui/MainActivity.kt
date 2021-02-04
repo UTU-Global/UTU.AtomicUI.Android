@@ -2,7 +2,6 @@ package global.ututaxfree.androidui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import global.ututaxfree.taxfreeandroidui.AtomicBubble
 import global.ututaxfree.taxfreeandroidui.AtomicToast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -12,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mainLayout.addView(AtomicBubble(applicationContext, "25"))
+        // mainLayout.addView(AtomicBubble(applicationContext, "25"))
 
         AtomicToast(
             this,
@@ -22,5 +21,13 @@ class MainActivity : AppCompatActivity() {
             listener = null,
             isIndefinite = true
         ).show()
+
+        val items = resources.getStringArray(
+            R.array.darkMode
+        ).toList()
+        language.setItems(
+            items,
+            windowManager
+        )
     }
 }
