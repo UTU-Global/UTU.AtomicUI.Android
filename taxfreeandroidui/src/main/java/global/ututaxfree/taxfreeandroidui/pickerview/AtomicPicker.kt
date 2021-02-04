@@ -5,13 +5,16 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
+import android.graphics.Typeface
 import android.os.Handler
 import android.util.AttributeSet
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.GestureDetector
 import android.view.GestureDetector.SimpleOnGestureListener
 import android.view.MotionEvent
 import android.view.View
+import android.view.WindowManager
 import androidx.core.content.res.ResourcesCompat
 import global.ututaxfree.taxfreeandroidui.R
 import java.util.concurrent.Executors
@@ -19,6 +22,9 @@ import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
+import kotlin.math.cos
+import kotlin.math.sin
+
 
 /**
  * Created by Likhitha Kolla on 01/06/2020.
@@ -58,11 +64,12 @@ class AtomicPicker : View {
     private var circularRadius = 0
     private var widgetWidth = 0
     private var localHandler: Handler
+    private var windowManager: WindowManager? = null
 
     @JvmOverloads
     constructor(
         context: Context?,
-        attrs: AttributeSet? = null as AttributeSet?,
+        attrs: AttributeSet? = null,
         defStyleAttr: Int = 0
     ) : super(context, attrs, defStyleAttr) {
         executorService = Executors.newSingleThreadScheduledExecutor()
@@ -86,6 +93,11 @@ class AtomicPicker : View {
         executorService = Executors.newSingleThreadScheduledExecutor()
         onGestureListener = WheelViewGestureListener()
         topBottomTextPaint = Paint()
+        topBottomTextPaint.textAlign = Paint.Align.CENTER
+        topBottomTextPaint.typeface = ResourcesCompat.getFont(
+            context!!,
+            R.font.notosans_regular
+        )
         centerTextPaint = Paint()
         centerLinePaint = Paint()
         localHandler = Handler(`AtomicPicker$$Lambda$2`.`lambdaFactory$`(this))
@@ -115,7 +127,7 @@ class AtomicPicker : View {
             array.recycle()
         }
         lineSpacingMultiplier = 2.0f
-        setLayerType(1, null as Paint?)
+        setLayerType(LAYER_TYPE_SOFTWARE, null as Paint?)
 
         itemCount = arrayOfNulls(drawItemsCount)
         gestureDetector = GestureDetector(this.context, onGestureListener)
@@ -179,12 +191,27 @@ class AtomicPicker : View {
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
         Log.i(TAG, "onMeasure -> heightMode:$heightMode")
         itemHeight = lineSpacingMultiplier * maxTextHeight.toFloat()
-        paddingLeftRight = (widgetWidth - maxTextWidth) / 2
+        //paddingLeftRight = (widgetWidth - maxTextWidth) / 2
         paddingTopBottom = (widgetHeight - circularDiameter) / 2
         topLineY =
             ((circularDiameter.toFloat() - itemHeight) / 2.0f).toInt() + paddingTopBottom
         bottomLineY =
             ((circularDiameter.toFloat() + itemHeight) / 2.0f).toInt() + paddingTopBottom
+    }
+
+    private fun getApproxXToCenterText(
+        text: String?,
+        typeface: Typeface?,
+        fontSize: Int
+    ): Int {
+        val p = Paint()
+        p.typeface = typeface
+        p.textSize = fontSize.toFloat()
+        val textWidth = p.measureText(text)
+        val metrics = DisplayMetrics()
+        windowManager!!.getDefaultDisplay().getMetrics(metrics)
+        val width = metrics.widthPixels
+        return ((width - textWidth.toInt()) / 2)
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -204,9 +231,8 @@ class AtomicPicker : View {
                 currentIndex =
                     if (currentIndex > data!!.size - 1) currentIndex - data!!.size else currentIndex
             }
-            var count: Int
             var templateItem: Int
-            count = 0
+            var count = 0
             while (count < drawItemsCount) {
                 templateItem = currentIndex - (drawItemsCount / 2 - count)
                 if (canLoop) {
@@ -247,17 +273,25 @@ class AtomicPicker : View {
                 val angle = (radian * 180.0 / 3.141592653589793).toFloat()
                 if (angle < 180.0f && angle > 0.0f) {
                     val translateY =
-                        (circularRadius.toDouble() - Math.cos(radian) * circularRadius.toDouble() - Math.sin(
+                        (circularRadius.toDouble() - cos(radian) * circularRadius.toDouble() - sin(
                             radian
                         ) * maxTextHeight.toDouble() / 2.0).toInt() + paddingTopBottom
                     canvas.translate(0.0f, translateY.toFloat())
-                    canvas.scale(1.0f, Math.sin(radian).toFloat())
+                    canvas.scale(1.0f, sin(radian).toFloat())
                     if (translateY > topLineY && maxTextHeight + translateY < bottomLineY) {
                         if (translateY >= topLineY && maxTextHeight + translateY <= bottomLineY) {
                             canvas.clipRect(0, 0, widgetWidth, itemHeight.toInt())
+                            val xOffset = getApproxXToCenterText(
+                                itemCount!![count]!!,
+                                ResourcesCompat.getFont(
+                                    context,
+                                    R.font.notosans_regular
+                                ),
+                                textSize
+                            )
                             canvas.drawText(
                                 itemCount!![count]!!,
-                                paddingLeftRight.toFloat(),
+                                xOffset.toFloat(),
                                 maxTextHeight.toFloat(),
                                 centerTextPaint
                             )
@@ -265,25 +299,40 @@ class AtomicPicker : View {
                         }
                     } else {
                         val diff =
-                            if (translateY <= topLineY) topLineY - translateY else bottomLineY - translateY
+                            if (translateY <= topLineY) topLineY - translateY
+                            else bottomLineY - translateY
                         val topBottomPaint =
                             if (translateY <= topLineY) topBottomTextPaint else centerTextPaint
                         val centerPaint =
                             if (translateY <= topLineY) centerTextPaint else topBottomTextPaint
                         canvas.save()
                         canvas.clipRect(0, 0, widgetWidth, diff)
+                        val xOffset = getApproxXToCenterText(
+                            itemCount!![count]!!,
+                            ResourcesCompat.getFont(
+                                context,
+                                R.font.notosans_regular
+                            ),
+                            textSize
+                        )
                         canvas.drawText(
                             itemCount!![count]!!,
-                            paddingLeftRight.toFloat(),
+                            xOffset.toFloat(),
                             maxTextHeight.toFloat(),
                             topBottomPaint
                         )
+                        /* canvas.drawText(
+                             itemCount!![count]!!,
+                             paddingLeftRight.toFloat(),
+                             maxTextHeight.toFloat(),
+                             topBottomPaint
+                         )*/
                         canvas.restore()
                         canvas.save()
                         canvas.clipRect(0, diff, widgetWidth, itemHeight.toInt())
                         canvas.drawText(
                             itemCount!![count]!!,
-                            paddingLeftRight.toFloat(),
+                            xOffset.toFloat(),
                             maxTextHeight.toFloat(),
                             centerPaint
                         )
@@ -335,7 +384,11 @@ class AtomicPicker : View {
         loopScrollListener = LoopListener
     }
 
-    fun setItems(list: List<String>?) {
+    fun setItems(
+        list: List<String>?,
+        windowManager: WindowManager
+    ) {
+        this.windowManager = windowManager
         data = list
         initData()
     }
@@ -382,23 +435,23 @@ class AtomicPicker : View {
         )
     }
 
-    fun sp2px(context: Context, spValue: Float): Int {
+    private fun sp2px(context: Context, spValue: Float): Int {
         val fontScale = context.resources.displayMetrics.scaledDensity
         return (spValue * fontScale + 0.5f).toInt()
     }
 
-    internal inner class FlingRunnable(val velocityY: Float) : Runnable {
-        var velocity = 2.14748365E9f
+    internal inner class FlingRunnable(private val velocityY: Float) : Runnable {
+        private var velocity = 2.14748365E9f
         override fun run() {
             if (velocity == 2.14748365E9f) {
-                if (abs(velocityY) > 2000.0f) {
-                    velocity = if (velocityY > 0.0f) 2000.0f else -2000.0f
+                velocity = if (abs(velocityY) > 2000.0f) {
+                    if (velocityY > 0.0f) 2000.0f else -2000.0f
                 } else {
-                    velocity = velocityY
+                    velocityY
                 }
             }
-            Log.i(TAG, "velocity->" + velocity)
-            if (Math.abs(velocity) in 0.0f..20.0f) {
+            Log.i(TAG, "velocity->$velocity")
+            if (abs(velocity) in 0.0f..20.0f) {
                 cancelSchedule()
                 localHandler.sendEmptyMessage(2000)
             } else {
@@ -425,28 +478,28 @@ class AtomicPicker : View {
 
     }
 
-    internal inner class HalfHeightRunnable(var offset: Int) : Runnable {
-        var realTotalOffset = 2147483647
-        var realOffset = 0
+    internal inner class HalfHeightRunnable(
+        private var offset: Int
+    ) : Runnable {
+        private var realTotalOffset = 2147483647
+        private var realOffset = 0
         override fun run() {
             if (realTotalOffset == 2147483647) {
-                if (offset.toFloat() > itemHeight / 2.0f) {
-                    realTotalOffset =
-                        (itemHeight - offset.toFloat()).toInt()
+                realTotalOffset = if (offset.toFloat() > itemHeight / 2.0f) {
+                    (itemHeight - offset.toFloat()).toInt()
                 } else {
-                    realTotalOffset = -offset
+                    -offset
                 }
             }
             realOffset = (realTotalOffset.toFloat() * 0.1f).toInt()
             if (realOffset == 0) {
                 realOffset = if (realTotalOffset < 0) -1 else 1
             }
-            if (Math.abs(realTotalOffset) <= 0) {
+            if (abs(realTotalOffset) <= 0) {
                 cancelSchedule()
                 localHandler.sendEmptyMessage(3000)
             } else {
-                totalScrollY =
-                    totalScrollY + realOffset
+                totalScrollY += realOffset
                 localHandler.sendEmptyMessage(1000)
                 realTotalOffset -= realOffset
             }

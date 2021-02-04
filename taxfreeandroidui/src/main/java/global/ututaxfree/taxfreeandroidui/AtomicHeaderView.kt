@@ -54,7 +54,9 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
             a.getString(R.styleable.AtomicHeaderView_headerLabel)
         header.findViewById<AppCompatTextView>(R.id.headerText).text = headerLabel
 
-        val isTransparent = a.getBoolean(R.styleable.AtomicHeaderView_isTransparentHeader, false)
+        val isTransparent = a.getBoolean(
+            R.styleable.AtomicHeaderView_isTransparentHeader, false
+        )
         if (isTransparent) {
             header.findViewById<RelativeLayout>(R.id.coreHeaderLayout).background =
                 ColorDrawable(Color.TRANSPARENT)
@@ -79,12 +81,18 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
                 when (a.getInt(R.styleable.AtomicHeaderView_actionIconColor, BLACK)) {
                     WHITE -> {
                         header.findViewById<AppCompatTextView>(R.id.headerText)
-                            .setTextColor(ContextCompat.getColor(context!!, R.color.whiteHeaderTextColor))
+                            .setTextColor(
+                                ContextCompat.getColor(
+                                    context!!, R.color.whiteHeaderTextColor
+                                )
+                            )
                         navigationUpButton.setImageResource(R.drawable.ic_back_white)
                     }
                     BLACK -> {
                         header.findViewById<AppCompatTextView>(R.id.headerText)
-                            .setTextColor( ContextCompat.getColor(context!!, R.color.blackHeaderTextColor))
+                            .setTextColor(
+                                ContextCompat.getColor(context!!, R.color.blackHeaderTextColor)
+                            )
                         navigationUpButton.setImageResource(R.drawable.ic_back_black)
                     }
                 }
@@ -93,7 +101,12 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
                 when (a.getInt(R.styleable.AtomicHeaderView_actionIconColor, BLACK)) {
                     WHITE -> {
                         header.findViewById<AppCompatTextView>(R.id.headerText)
-                            .setTextColor(ContextCompat.getColor(context!!, R.color.whiteHeaderTextColor))
+                            .setTextColor(
+                                ContextCompat.getColor(
+                                    context!!,
+                                    R.color.whiteHeaderTextColor
+                                )
+                            )
                         if (isTransparent) {
                             navigationUpButton.setImageResource(R.drawable.ic_close_scan)
                         } else {
@@ -102,7 +115,12 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
                     }
                     BLACK -> {
                         header.findViewById<AppCompatTextView>(R.id.headerText)
-                            .setTextColor( ContextCompat.getColor(context!!, R.color.blackHeaderTextColor))
+                            .setTextColor(
+                                ContextCompat.getColor(
+                                    context!!,
+                                    R.color.blackHeaderTextColor
+                                )
+                            )
                         navigationUpButton.setImageResource(R.drawable.ic_close_black)
                     }
                 }
