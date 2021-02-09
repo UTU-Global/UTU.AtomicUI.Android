@@ -19,7 +19,7 @@
 
     <color name="pressedTextOutlinedButtonColor">#00B398</color>
 
-    <color name="snackbarBgColor">#F5F5F5</color>
+    <color name="snackbarBgColor">#282828</color>
 
     <color name="success">#00B398</color>
     <color name="warning">#FF9948</color>
@@ -38,7 +38,7 @@
     <color name="ic_headerColor">#d5d5d5</color>
     <color name="colorTitle">#999999</color>
     <color name="ic_colorTitle">#727272</color>
-    <color name="colorDesc">#666666</color>
+    <color name="colorDesc">#d5d5d5</color>
     <color name="ic_colorDesc">#a9a9a9</color>
     <color name="ic_checkboxborderColor">#282828</color>
     <color name="greenColor">#00b398</color>
