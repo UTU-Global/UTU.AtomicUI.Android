@@ -11,6 +11,7 @@ import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 
 /**
@@ -54,11 +55,15 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
             a.getString(R.styleable.AtomicHeaderView_headerLabel)
         header.findViewById<AppCompatTextView>(R.id.headerText).text = headerLabel
 
+        val background =
+                a.getColor(R.styleable.AtomicHeaderView_toolbarBackgroundColor,-218908)
+        header.findViewById<Toolbar>(R.id.my_toolbar).setBackgroundColor(background)
+
         val isTransparent = a.getBoolean(
             R.styleable.AtomicHeaderView_isTransparentHeader, false
         )
         if (isTransparent) {
-            header.findViewById<RelativeLayout>(R.id.coreHeaderLayout).background =
+            header.findViewById<Toolbar>(R.id.my_toolbar).background =
                 ColorDrawable(Color.TRANSPARENT)
         }
 
