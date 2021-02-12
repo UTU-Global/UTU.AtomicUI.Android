@@ -56,7 +56,7 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
         header.findViewById<AppCompatTextView>(R.id.headerText).text = headerLabel
 
         val background =
-                a.getColor(R.styleable.AtomicHeaderView_toolbarBackgroundColor,-218908)
+                a.getColor(R.styleable.AtomicHeaderView_toolbarBackgroundColor,resources.getColor(R.color.colorWhite1,null))
         header.findViewById<Toolbar>(R.id.my_toolbar).setBackgroundColor(background)
 
         val isTransparent = a.getBoolean(
