@@ -23,6 +23,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_toStartOf="@+id/closeDialog"
                 android:ellipsize="end"
+                android:textColor="@color/colorDesc"
                 android:fontFamily="@font/notosans_bold"
                 android:gravity="center"
                 android:maxLines="2"
