@@ -19,7 +19,7 @@
 
     <color name="pressedTextOutlinedButtonColor">#00B398</color>
 
-    <color name="snackbarBgColor">#1e1e1e</color>
+    <color name="snackbarBgColor">#282828</color>
 
     <color name="success">#00B398</color>
     <color name="warning">#FF9948</color>

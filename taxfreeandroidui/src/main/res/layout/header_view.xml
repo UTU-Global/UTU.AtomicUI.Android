@@ -16,7 +16,6 @@
         android:id="@+id/coreHeaderLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorWhite1"
         android:fitsSystemWindows="true">
 
         <ImageButton

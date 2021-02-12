@@ -13,21 +13,5 @@ class MainActivity : AppCompatActivity() {
 
         // mainLayout.addView(AtomicBubble(applicationContext, "25"))
 
-        AtomicToast(
-            this,
-            view = inpoutt,
-            actionText = "message",
-            actionType = AtomicToast.TYPE_WARNING,
-            listener = null,
-            isIndefinite = true
-        ).show()
-
-        val items = resources.getStringArray(
-            R.array.darkMode
-        ).toList()
-        language.setItems(
-            items,
-            windowManager
-        )
     }
 }
