@@ -24,6 +24,9 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
     lateinit var navigationUpButton: ImageButton
     lateinit var menuButton: AppCompatTextView
     lateinit var headerLabel: AppCompatTextView
+    private var isWhiteHeader = false
+    lateinit var toolbar : Toolbar
+
 
     companion object {
         const val BACK = "back"
@@ -46,30 +49,35 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
         navigationUpButton = header.findViewById(R.id.headerAction)
         menuButton = header.findViewById(R.id.headerMenu)
         headerLabel = header.findViewById(R.id.headerText)
+        toolbar = header.findViewById(R.id.my_toolbar)
 
         val a = context.obtainStyledAttributes(
             attrs,
             R.styleable.AtomicHeaderView, 0, 0
         )
+
         val headerLabel =
             a.getString(R.styleable.AtomicHeaderView_headerLabel)
-        header.findViewById<AppCompatTextView>(R.id.headerText).text = headerLabel
+        this.headerLabel.text = headerLabel
 
         val background =
                 a.getColor(R.styleable.AtomicHeaderView_toolbarBackgroundColor,resources.getColor(R.color.colorWhite1,null))
-        header.findViewById<Toolbar>(R.id.my_toolbar).setBackgroundColor(background)
+        toolbar.setBackgroundColor(background)
+        isWhiteHeader = a.getBoolean(R.styleable.AtomicHeaderView_isWhiteHeader, false)
+        onSetBackground()
+
 
         val isTransparent = a.getBoolean(
             R.styleable.AtomicHeaderView_isTransparentHeader, false
         )
         if (isTransparent) {
-            header.findViewById<Toolbar>(R.id.my_toolbar).background =
+           toolbar.background =
                 ColorDrawable(Color.TRANSPARENT)
         }
 
         val menuText = a.getString(R.styleable.AtomicHeaderView_menuText)
         if (!TextUtils.isEmpty(menuText)) {
-            header.findViewById<AppCompatTextView>(R.id.headerMenu).text = menuText
+            menuButton.text = menuText
         }
 
         val menuIcon = a.getResourceId(R.styleable.AtomicHeaderView_menuIcon, -1)
@@ -138,5 +146,17 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
         addView(header)
 
         a.recycle()
+    }
+
+    private fun onSetBackground(){
+        if(isWhiteHeader){
+           toolbar.setBackgroundColor(resources.getColor(R.color.colorWhite,null))
+
+        }
+    }
+
+     fun setWhiteHeader(isWhite: Boolean) {
+        isWhiteHeader = isWhite
+        onSetBackground()
     }
 }
