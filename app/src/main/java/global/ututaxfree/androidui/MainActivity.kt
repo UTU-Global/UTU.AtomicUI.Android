@@ -12,6 +12,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // mainLayout.addView(AtomicBubble(applicationContext, "25"))
-
+        headerWalletLayout.setWhiteHeader(true)
     }
 }
