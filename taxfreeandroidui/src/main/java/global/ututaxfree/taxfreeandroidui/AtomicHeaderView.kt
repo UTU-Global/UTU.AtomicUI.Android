@@ -151,6 +151,10 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
     private fun onSetBackground(){
         if(isWhiteHeader){
            toolbar.setBackgroundColor(resources.getColor(R.color.colorWhite,null))
+            navigationUpButton.setImageResource(R.drawable.ic_back_black_arrow)
+            headerLabel.setTextColor(ContextCompat.getColor(
+                context!!, R.color.colorBlack
+            ))
 
         }
     }
