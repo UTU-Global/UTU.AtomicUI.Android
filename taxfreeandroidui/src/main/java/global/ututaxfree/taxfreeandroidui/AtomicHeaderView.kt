@@ -61,7 +61,7 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
         this.headerLabel.text = headerLabel
 
         val background =
-                a.getColor(R.styleable.AtomicHeaderView_toolbarBackgroundColor,resources.getColor(R.color.colorWhite1,null))
+                a.getColor(R.styleable.AtomicHeaderView_toolbarBackgroundColor,ContextCompat.getColor(context,R.color.colorWhite1))
         toolbar.setBackgroundColor(background)
         isWhiteHeader = a.getBoolean(R.styleable.AtomicHeaderView_isWhiteHeader, false)
         onSetBackground()
@@ -150,7 +150,13 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
 
     private fun onSetBackground(){
         if(isWhiteHeader){
-           toolbar.setBackgroundColor(resources.getColor(R.color.colorWhite,null))
+           toolbar.setBackgroundColor(ContextCompat.getColor(
+               context!!, R.color.colorWhite
+           ))
+            navigationUpButton.setImageResource(R.drawable.ic_back_black_arrow)
+            headerLabel.setTextColor(ContextCompat.getColor(
+                context!!, R.color.colorBlack
+            ))
 
         }
     }
