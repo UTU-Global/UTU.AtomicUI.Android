@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
+import androidx.core.content.res.ResourcesCompat
 import global.ututaxfree.taxfreeandroidui.R
 import java.util.*
 import java.util.concurrent.Executors
@@ -72,6 +73,8 @@ class LoopView : View {
     private var paddingstart = 0
     private var paddingend = 0
     private var typeface = Typeface.MONOSPACE
+    private var paddingTopBottom = 0
+
 
     /**
      * set text line space, must more than 1
@@ -151,30 +154,27 @@ class LoopView : View {
         flingGestureDetector = GestureDetector(context, LoopViewGestureListener(this))
         flingGestureDetector!!.setIsLongpressEnabled(false)
         val typedArray = context.obtainStyledAttributes(attributeset, R.styleable.LoopView)
-        if (typedArray != null) {
-            textSize = typedArray.getDimensionPixelSize(
-                R.styleable.LoopView_textsize,
-                sp2px(this.context, 16.0f)
-            )
-            lineSpacingMultiplier =
-                typedArray.getFloat(R.styleable.LoopView_awv_lineSpace, DEFAULT_LINE_SPACE)
-            centerTextColor =
-                typedArray.getColor(R.styleable.LoopView_centertextColor, -13553359)
-            outerTextColor =
-                typedArray.getColor(R.styleable.LoopView_outertextColor, -5263441)
-            dividerColor =
-                typedArray.getColor(R.styleable.LoopView_dividerTextColor, -3815995)
-            initPosition = typedArray.getInt(R.styleable.LoopView_initialPosition, -1)
-            itemsVisibleCount = typedArray.getInteger(
-                R.styleable.LoopView_itemsVisibleCount,
-                DEFAULT_VISIBIE_ITEMS
-            )
-            if (itemsVisibleCount % 2 == 0) {
-                itemsVisibleCount = DEFAULT_VISIBIE_ITEMS
-            }
-            isLoop = typedArray.getBoolean(R.styleable.LoopView_isLoop, true)
-            typedArray.recycle()
+        textSize = typedArray.getDimensionPixelSize(
+            R.styleable.LoopView_textsize,
+            sp2px(this.context, 16.0f)
+        )
+        lineSpacingMultiplier = 1.0f
+        centerTextColor =
+            typedArray.getColor(R.styleable.LoopView_centertextColor, -13553359)
+        outerTextColor =
+            typedArray.getColor(R.styleable.LoopView_outertextColor, -5263441)
+        dividerColor =
+            typedArray.getColor(R.styleable.LoopView_dividerTextColor, -3815995)
+        initPosition = typedArray.getInt(R.styleable.LoopView_initialPosition, -1)
+        itemsVisibleCount = typedArray.getInteger(
+            R.styleable.LoopView_itemsVisibleCount,
+            DEFAULT_VISIBIE_ITEMS
+        )
+        if (itemsVisibleCount % 2 == 0) {
+            itemsVisibleCount = DEFAULT_VISIBIE_ITEMS
         }
+        isLoop = typedArray.getBoolean(R.styleable.LoopView_isLoop, true)
+        typedArray.recycle()
         drawingStrings = HashMap()
         totalScrollY = 0
         initPosition = -1
@@ -200,7 +200,10 @@ class LoopView : View {
             paintOuterText = Paint()
             paintOuterText!!.color = outerTextColor
             paintOuterText!!.isAntiAlias = true
-            paintOuterText!!.typeface = typeface
+            paintOuterText!!.typeface = ResourcesCompat.getFont(
+                context,
+                R.font.notosans_regular
+            )
             paintOuterText!!.textSize = textSize.toFloat()
         }
         if (paintCenterText == null) {
@@ -208,13 +211,20 @@ class LoopView : View {
             paintCenterText!!.color = centerTextColor
             paintCenterText!!.isAntiAlias = true
             paintCenterText!!.textScaleX = scaleX1
-            paintCenterText!!.typeface = typeface
+            paintCenterText!!.typeface = ResourcesCompat.getFont(
+                context,
+                R.font.notosans_bold
+            )
             paintCenterText!!.textSize = textSize.toFloat()
         }
         if (paintIndicator == null) {
             paintIndicator = Paint()
             paintIndicator!!.color = dividerColor
             paintIndicator!!.isAntiAlias = true
+            paintIndicator!!.typeface = ResourcesCompat.getFont(
+                context,
+                R.font.notosans_bold
+            )
         }
     }
 
@@ -669,12 +679,10 @@ class LoopView : View {
     }
 
     companion object {
-        private val DEFAULT_TEXT_SIZE = (Resources.getSystem().displayMetrics.density * 15).toInt()
-        private const val DEFAULT_LINE_SPACE = 1f
         private const val DEFAULT_VISIBIE_ITEMS = 9
         const val SCROLL_STATE_IDLE = 0
         const val SCROLL_STATE_SETTING = 1
-        const val SCROLL_STATE_DRAGGING = 2 // 用户按住滚轮拖拽
-        const val SCROLL_STATE_SCROLLING = 3 // 依靠惯性滚动
+        const val SCROLL_STATE_DRAGGING = 2
+        const val SCROLL_STATE_SCROLLING = 3
     }
 }

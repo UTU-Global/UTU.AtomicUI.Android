@@ -18,7 +18,7 @@
 
     <global.ututaxfree.taxfreeandroidui.picker.LoopView
         android:id="@+id/loop"
-        app:textsize="30sp"
+        app:textsize="24sp"
         app:isLoop="false"
         app:outertextColor="@color/colorRed"
         app:centertextColor="@color/greenColor"
@@ -36,7 +36,7 @@
         app:drawItemCount="9"
         app:initPosition="0"
         app:lineColor="@color/colorRed"
-        app:textSize="30sp"
+        app:textSize="24sp"
         app:topBottomTextColor="@color/greenColor" />
 
 
