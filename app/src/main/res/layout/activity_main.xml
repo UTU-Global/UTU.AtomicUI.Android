@@ -16,5 +16,28 @@
         app:headerLabel="Test"
          />
 
+    <global.ututaxfree.taxfreeandroidui.picker.LoopView
+        android:id="@+id/loop"
+        app:textsize="24sp"
+        app:isLoop="false"
+        app:outertextColor="@color/colorRed"
+        app:centertextColor="@color/greenColor"
+        app:dividerTextColor="@color/colorRed"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+    <global.ututaxfree.taxfreeandroidui.pickerview.AtomicPicker
+        android:id="@+id/language"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center|center_horizontal"
+        app:canLoop="false"
+        app:centerTextColor="@color/colorRed"
+        app:drawItemCount="9"
+        app:initPosition="0"
+        app:lineColor="@color/colorRed"
+        app:textSize="24sp"
+        app:topBottomTextColor="@color/greenColor" />
+
 
 </LinearLayout>
