@@ -27,6 +27,18 @@
         <attr name="drawItemCount" format="integer" />
     </declare-styleable>
 
+    <declare-styleable name="LoopView">
+        <attr name="dividerTextColor" format="color" />
+        <attr name="outertextColor" format="color" />
+        <attr name="centertextColor" format="color" />
+        <attr name="textsize" format="dimension" />
+        <attr name="isLoop" format="boolean" />
+        <attr name="initialPosition" format="integer" />
+        <attr name="itemsVisibleCount" format="integer" />
+        <attr name="awv_lineSpace" format="float" />
+        <attr name="awv_scaleX" format="float" />
+    </declare-styleable>
+
     <declare-styleable name="AtomicSwitch">
         <attr name="sb_shadow_radius" format="reference|dimension" />
         <attr name="sb_shadow_offset" format="reference|dimension" />
@@ -51,16 +63,6 @@
     </declare-styleable>
 
 
-    <declare-styleable name="LoopView">
-        <attr name="awv_textsize" format="integer" />
-        <attr name="awv_lineSpace" format="float" />
-        <attr name="awv_centerTextColor" format="integer" />
-        <attr name="awv_outerTextColor" format="integer" />
-        <attr name="awv_dividerTextColor" format="integer" />
-        <attr name="awv_itemsVisibleCount" format="integer" />
-        <attr name="awv_isLoop" format="boolean" />
-        <attr name="awv_initialPosition" format="integer" />
-        <attr name="awv_scaleX" format="float" />
-    </declare-styleable>
+
 
 </resources>

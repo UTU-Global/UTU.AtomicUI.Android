@@ -13,5 +13,18 @@ class MainActivity : AppCompatActivity() {
 
         // mainLayout.addView(AtomicBubble(applicationContext, "25"))
         headerWalletLayout.setWhiteHeader(true)
+        val items = resources.getStringArray(
+            R.array.darkMode
+        ).toList()
+        loop.setItems(
+            items
+        )
+
+        val items1 = resources.getStringArray(
+            R.array.darkMode
+        ).toList()
+        language.setItems(
+            items1,windowManager
+        )
     }
 }

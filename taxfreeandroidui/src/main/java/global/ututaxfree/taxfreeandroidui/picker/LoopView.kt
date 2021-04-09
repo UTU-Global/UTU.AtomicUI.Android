@@ -140,6 +140,11 @@ class LoopView : View {
         initLoopView(context, attributeset)
     }
 
+    private fun sp2px(context: Context, spValue: Float): Int {
+        val fontScale = context.resources.displayMetrics.scaledDensity
+        return (spValue * fontScale + 0.5f).toInt()
+    }
+
     private fun initLoopView(context: Context, attributeset: AttributeSet?) {
         this.context1 = context
         handler1 = MessageHandler(this)
@@ -147,24 +152,27 @@ class LoopView : View {
         flingGestureDetector!!.setIsLongpressEnabled(false)
         val typedArray = context.obtainStyledAttributes(attributeset, R.styleable.LoopView)
         if (typedArray != null) {
-            textSize = typedArray.getInteger(R.styleable.LoopView_awv_textsize, DEFAULT_TEXT_SIZE)
-            textSize = (Resources.getSystem().displayMetrics.density * textSize).toInt()
+            textSize = typedArray.getDimensionPixelSize(
+                R.styleable.LoopView_textsize,
+                sp2px(this.context, 16.0f)
+            )
             lineSpacingMultiplier =
                 typedArray.getFloat(R.styleable.LoopView_awv_lineSpace, DEFAULT_LINE_SPACE)
             centerTextColor =
-                typedArray.getInteger(R.styleable.LoopView_awv_centerTextColor, -0xcececf)
+                typedArray.getColor(R.styleable.LoopView_centertextColor, -13553359)
             outerTextColor =
-                typedArray.getInteger(R.styleable.LoopView_awv_outerTextColor, -0x505051)
+                typedArray.getColor(R.styleable.LoopView_outertextColor, -5263441)
             dividerColor =
-                typedArray.getInteger(R.styleable.LoopView_awv_dividerTextColor, -0x3a3a3b)
+                typedArray.getColor(R.styleable.LoopView_dividerTextColor, -3815995)
+            initPosition = typedArray.getInt(R.styleable.LoopView_initialPosition, -1)
             itemsVisibleCount = typedArray.getInteger(
-                R.styleable.LoopView_awv_itemsVisibleCount,
+                R.styleable.LoopView_itemsVisibleCount,
                 DEFAULT_VISIBIE_ITEMS
             )
             if (itemsVisibleCount % 2 == 0) {
                 itemsVisibleCount = DEFAULT_VISIBIE_ITEMS
             }
-            isLoop = typedArray.getBoolean(R.styleable.LoopView_awv_isLoop, true)
+            isLoop = typedArray.getBoolean(R.styleable.LoopView_isLoop, true)
             typedArray.recycle()
         }
         drawingStrings = HashMap()
@@ -214,14 +222,14 @@ class LoopView : View {
         if (items == null || items!!.isEmpty()) {
             return
         }
-        measuredWidth1 = getMeasuredWidth()
-        measuredHeight1 = getMeasuredHeight()
+        measuredWidth1 = measuredWidth
+        measuredHeight1 = measuredHeight
         if (measuredWidth1 == 0 || measuredHeight1 == 0) {
             return
         }
-        paddingstart = getPaddingLeft()
-        paddingend = getPaddingRight()
-        measuredWidth1 = measuredWidth1 - paddingend
+        paddingstart = paddingLeft
+        paddingend = paddingRight
+        measuredWidth1 -= paddingend
         paintCenterText!!.getTextBounds("\u661F\u671F", 0, 2, tempRect) // 星期
         textHeight = tempRect.height()
         halfCircumference = (measuredHeight1 * Math.PI / 2).toInt()
@@ -664,8 +672,8 @@ class LoopView : View {
         private val DEFAULT_TEXT_SIZE = (Resources.getSystem().displayMetrics.density * 15).toInt()
         private const val DEFAULT_LINE_SPACE = 1f
         private const val DEFAULT_VISIBIE_ITEMS = 9
-        const val SCROLL_STATE_IDLE = 0 // 停止滚动
-        const val SCROLL_STATE_SETTING = 1 // 用户设置
+        const val SCROLL_STATE_IDLE = 0
+        const val SCROLL_STATE_SETTING = 1
         const val SCROLL_STATE_DRAGGING = 2 // 用户按住滚轮拖拽
         const val SCROLL_STATE_SCROLLING = 3 // 依靠惯性滚动
     }
