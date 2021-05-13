@@ -20,9 +20,21 @@
         android:layout_height="match_parent"
         android:layout_gravity="center|center_horizontal"
         android:layout_marginTop="10dp"
+        android:visibility="gone"
         app:canLoop="false"
         app:drawItemCount="9"
         app:initPosition="0"
         app:textSize="24sp" />
+
+    <global.ututaxfree.taxfreeandroidui.AtomicButton
+        android:id="@+id/addOrLinked"
+        android:layout_width="66dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="12dp"
+        android:gravity="center"
+        android:text="Add"
+        android:textSize="14sp"
+        app:outlined="true"
+        app:size="small" />
 
 </LinearLayout>

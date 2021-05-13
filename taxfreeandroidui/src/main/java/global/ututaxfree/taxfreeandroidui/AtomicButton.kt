@@ -3,20 +3,19 @@ package global.ututaxfree.taxfreeandroidui
 import android.content.Context
 import android.util.AttributeSet
 import android.view.Gravity
-import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import com.google.android.material.button.MaterialButton
 import global.ututaxfree.taxfreeandroidui.utilities.TaxFreeUtils
 
 /**
  * Created by Bharath Simha Gupta on 10/14/2019.
  */
 
-class AtomicButton : AppCompatButton {
+class AtomicButton : MaterialButton {
 
     constructor(context: Context) : super(context) {
         onInit(context, null, R.style.AtomicButton)
-
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
@@ -133,6 +132,10 @@ class AtomicButton : AppCompatButton {
                 }
             }
         }
+
+        backgroundTintList = null
+        insetTop = 0
+        insetBottom = 0
     }
 
     companion object {
