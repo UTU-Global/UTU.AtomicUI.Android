@@ -13,6 +13,8 @@
         <attr name="headerLabel" format="string" />
         <attr name="actionIconColor" format="integer" />
         <attr name="isTransparentHeader" format="boolean" />
+        <attr name="isWhiteHeader" format="boolean" />
+        <attr name="toolbarBackgroundColor" format="color" />
     </declare-styleable>
 
     <declare-styleable name="AtomicPicker">
@@ -23,6 +25,18 @@
         <attr name="canLoop" format="boolean" />
         <attr name="initPosition" format="integer" />
         <attr name="drawItemCount" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="LoopView">
+        <attr name="dividerTextColor" format="color" />
+        <attr name="outertextColor" format="color" />
+        <attr name="centertextColor" format="color" />
+        <attr name="textsize" format="dimension" />
+        <attr name="isLoop" format="boolean" />
+        <attr name="initialPosition" format="integer" />
+        <attr name="itemsVisibleCount" format="integer" />
+        <attr name="awv_lineSpace" format="float" />
+        <attr name="awv_scaleX" format="float" />
     </declare-styleable>
 
     <declare-styleable name="AtomicSwitch">
@@ -47,5 +61,8 @@
         <attr name="sb_background" format="reference|color" />
         <attr name="sb_enable_effect" format="reference|boolean" />
     </declare-styleable>
+
+
+
 
 </resources>

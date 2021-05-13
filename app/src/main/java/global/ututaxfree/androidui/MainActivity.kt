@@ -12,22 +12,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // mainLayout.addView(AtomicBubble(applicationContext, "25"))
-
-        AtomicToast(
-            this,
-            view = inpoutt,
-            actionText = "message",
-            actionType = AtomicToast.TYPE_WARNING,
-            listener = null,
-            isIndefinite = true
-        ).show()
-
+        headerWalletLayout.setWhiteHeader(true)
         val items = resources.getStringArray(
             R.array.darkMode
         ).toList()
+        loop.setItems(
+            items
+        )
+
+        val items1 = resources.getStringArray(
+            R.array.darkMode
+        ).toList()
         language.setItems(
-            items,
-            windowManager
+            items1,windowManager
         )
     }
 }

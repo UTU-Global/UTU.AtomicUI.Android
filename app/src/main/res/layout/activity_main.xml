@@ -8,23 +8,22 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <global.ututaxfree.taxfreeandroidui.AtomicTextInput
-        android:id="@+id/inpoutt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
 
-    <global.ututaxfree.taxfreeandroidui.pickerview.AtomicPicker
-        android:id="@+id/language"
+    <global.ututaxfree.taxfreeandroidui.AtomicHeaderView
+        android:id="@+id/headerWalletLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center|center_horizontal"
-        android:layout_marginTop="10dp"
-        android:visibility="gone"
-        app:canLoop="false"
-        app:drawItemCount="9"
-        app:initPosition="0"
-        app:textSize="24sp" />
+        android:layout_height="?attr/actionBarSize"
+        app:headerLabel="Test" />
+
+    <global.ututaxfree.taxfreeandroidui.picker.LoopView
+        android:id="@+id/loop"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:centertextColor="@color/greenColor"
+        app:dividerTextColor="@color/colorRed"
+        app:isLoop="false"
+        app:outertextColor="@color/colorRed"
+        app:textsize="24sp" />
 
     <global.ututaxfree.taxfreeandroidui.AtomicButton
         android:id="@+id/addOrLinked"

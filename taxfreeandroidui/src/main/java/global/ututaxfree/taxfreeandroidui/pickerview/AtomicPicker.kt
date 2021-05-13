@@ -140,7 +140,7 @@ class AtomicPicker : View {
         topBottomTextPaint.isAntiAlias = true
         topBottomTextPaint.typeface = ResourcesCompat.getFont(
             context,
-            R.font.notosans_bold
+            R.font.notosans_regular
         )
         topBottomTextPaint.textSize = textSize.toFloat()
         centerTextPaint.color = centerTextColor
