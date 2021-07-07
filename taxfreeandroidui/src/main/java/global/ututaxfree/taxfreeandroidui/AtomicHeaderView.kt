@@ -9,7 +9,6 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.ImageButton
 import android.widget.LinearLayout
-import android.widget.RelativeLayout
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
@@ -25,7 +24,7 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
     lateinit var menuButton: AppCompatTextView
     lateinit var headerLabel: AppCompatTextView
     private var isWhiteHeader = false
-    lateinit var toolbar : Toolbar
+    lateinit var toolbar: Toolbar
 
 
     companion object {
@@ -61,7 +60,10 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
         this.headerLabel.text = headerLabel
 
         val background =
-                a.getColor(R.styleable.AtomicHeaderView_toolbarBackgroundColor,ContextCompat.getColor(context,R.color.colorWhite1))
+            a.getColor(
+                R.styleable.AtomicHeaderView_toolbarBackgroundColor,
+                ContextCompat.getColor(context, R.color.colorWhite1)
+            )
         toolbar.setBackgroundColor(background)
         isWhiteHeader = a.getBoolean(R.styleable.AtomicHeaderView_isWhiteHeader, false)
         onSetBackground()
@@ -71,7 +73,7 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
             R.styleable.AtomicHeaderView_isTransparentHeader, false
         )
         if (isTransparent) {
-           toolbar.background =
+            toolbar.background =
                 ColorDrawable(Color.TRANSPARENT)
         }
 
@@ -148,20 +150,24 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
         a.recycle()
     }
 
-    private fun onSetBackground(){
-        if(isWhiteHeader){
-           toolbar.setBackgroundColor(ContextCompat.getColor(
-               context!!, R.color.colorWhite
-           ))
+    private fun onSetBackground() {
+        if (isWhiteHeader) {
+            toolbar.setBackgroundColor(
+                ContextCompat.getColor(
+                    context!!, R.color.colorWhite
+                )
+            )
             navigationUpButton.setImageResource(R.drawable.ic_back_black_arrow)
-            headerLabel.setTextColor(ContextCompat.getColor(
-                context!!, R.color.colorBlack
-            ))
+            headerLabel.setTextColor(
+                ContextCompat.getColor(
+                    context!!, R.color.colorBlack
+                )
+            )
 
         }
     }
 
-     fun setWhiteHeader(isWhite: Boolean) {
+    fun setWhiteHeader(isWhite: Boolean) {
         isWhiteHeader = isWhite
         onSetBackground()
     }

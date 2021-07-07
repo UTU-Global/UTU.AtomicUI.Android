@@ -2,7 +2,8 @@ package global.ututaxfree.taxfreeandroidui.picker
 
 import kotlin.math.abs
 
-internal class SmoothScrollTimerTask(private val loopView: LoopView, private var offset: Int) : Runnable {
+internal class SmoothScrollTimerTask(private val loopView: LoopView, private var offset: Int) :
+    Runnable {
     var realTotalOffset: Int
     var realOffset: Int
     override fun run() {

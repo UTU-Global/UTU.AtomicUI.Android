@@ -832,6 +832,7 @@ class AtomicSwitch : View, Checkable {
     companion object {
         private val DEFAULT_WIDTH = dp2pxInt(52f)
         private val DEFAULT_HEIGHT = dp2pxInt(28f)
+
         /** */
         private fun dp2px(dp: Float): Float {
             val r = Resources.getSystem()

@@ -1,7 +1,6 @@
 package global.ututaxfree.taxfreeandroidui.picker
 
 import android.content.Context
-import android.content.res.Resources
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
@@ -31,6 +30,7 @@ class LoopView : View {
     enum class ACTION {
         CLICK, FLING, DRAG
     }
+
     var context1: Context? = null
     var handler1: Handler? = null
     private var flingGestureDetector: GestureDetector? = null

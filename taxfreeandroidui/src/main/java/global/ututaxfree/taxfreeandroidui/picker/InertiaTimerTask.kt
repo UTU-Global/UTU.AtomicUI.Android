@@ -3,7 +3,8 @@ package global.ututaxfree.taxfreeandroidui.picker
 import android.util.Log
 import kotlin.math.abs
 
-internal class InertiaTimerTask(private val loopView: LoopView, private val velocityY: Float) : Runnable {
+internal class InertiaTimerTask(private val loopView: LoopView, private val velocityY: Float) :
+    Runnable {
     private var a: Float
     override fun run() {
         if (a == Int.MAX_VALUE.toFloat()) {
@@ -19,7 +20,10 @@ internal class InertiaTimerTask(private val loopView: LoopView, private val velo
         }
         if (abs(a) in 0.0f..20f) {
             Log.i("gy", "WHAT_SMOOTH_SCROLL_INERTIA")
-            loopView.handler1!!.sendEmptyMessageDelayed(MessageHandler.WHAT_SMOOTH_SCROLL_INERTIA, 60)
+            loopView.handler1!!.sendEmptyMessageDelayed(
+                MessageHandler.WHAT_SMOOTH_SCROLL_INERTIA,
+                60
+            )
             loopView.cancelFuture()
             loopView.handler1!!.sendEmptyMessage(MessageHandler.WHAT_SMOOTH_SCROLL)
             return
