@@ -6,12 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
 
     <global.ututaxfree.taxfreeandroidui.AtomicHeaderView
         android:id="@+id/headerWalletLayout"
         android:layout_width="match_parent"
+        android:background="@color/colorRed"
         android:layout_height="?attr/actionBarSize"
         app:headerLabel="Test" />
 

@@ -3,11 +3,13 @@ package global.ututaxfree.taxfreeandroidui
 import android.content.Context
 import android.os.Handler
 import android.text.Layout
+import android.util.DisplayMetrics
 import android.view.*
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import androidx.appcompat.widget.AppCompatTextView
 import com.androidadvance.topsnackbar.TSnackbar
+import kotlin.math.roundToInt
 
 /**
  * Created by Bharath Simha Gupta on 10/25/2019.
@@ -73,6 +75,7 @@ class AtomicToast {
         parentParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
         if (parentParams is FrameLayout.LayoutParams) {
             parentParams.gravity = Gravity.TOP
+            parentParams.topMargin = dpToPx(24,context)
         }
         snackBarView.layoutParams = parentParams
 
@@ -170,5 +173,11 @@ class AtomicToast {
         const val TYPE_SUCCESS = "small"
         const val TYPE_WARNING = "regular"
         const val TYPE_ERROR = "big"
+    }
+
+    fun dpToPx(dp: Int, context: Context): Int {
+        val displayMetrics: DisplayMetrics = context.resources.displayMetrics
+        return (dp * (displayMetrics.xdpi /
+                DisplayMetrics.DENSITY_DEFAULT)).roundToInt()
     }
 }
