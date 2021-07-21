@@ -135,22 +135,24 @@ class AtomicToast {
 
         val vto: ViewTreeObserver = textView.viewTreeObserver
         vto.addOnGlobalLayoutListener {
-            val layout: Layout = textView.layout
-            val lines = layout.lineCount
-            if (lines > 0) {
-                if (layout.getEllipsisCount
-                        (lines - 1) > 0
-                ) {
-                    isEllipsized = true
+            if (textView.layout != null) {
+                val layout: Layout = textView.layout
+                val lines = layout.lineCount
+                if (lines > 0) {
+                    if (layout.getEllipsisCount
+                            (lines - 1) > 0
+                    ) {
+                        isEllipsized = true
+                    }
                 }
             }
-        }
-        if (!isIndefinite) {
-            handler?.postDelayed({
-                if (snackBar != null) {
-                    snackBar!!.dismiss()
-                }
-            }, 2500)
+            if (!isIndefinite) {
+                handler?.postDelayed({
+                    if (snackBar != null) {
+                        snackBar!!.dismiss()
+                    }
+                }, 2500)
+            }
         }
     }
 
