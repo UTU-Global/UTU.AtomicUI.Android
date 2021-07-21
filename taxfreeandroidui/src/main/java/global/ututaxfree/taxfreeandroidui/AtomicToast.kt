@@ -37,6 +37,25 @@ class AtomicToast {
         view: View,
         actionText: String,
         actionType: String,
+        listener: ToastClosedListener?,
+        isIndefinite: Boolean,
+        isFullScreen: Boolean
+    ) {
+        this.context = context
+        this.mView = view
+        this.actionText = actionText
+        this.actionType = actionType
+        this.listener = listener
+        this.isIndefinite = isIndefinite
+        this.isFullScreen = isFullScreen
+        onBuildToast()
+    }
+
+    constructor(
+        context: Context,
+        view: View,
+        actionText: String,
+        actionType: String,
         listener: ToastClosedListener?
     ) {
         this.context = context
@@ -53,11 +72,22 @@ class AtomicToast {
     private var actionType: String
     private var listener: ToastClosedListener?
     private var isIndefinite: Boolean = false
+    private var isFullScreen: Boolean = false
 
     private var isEllipsized = false
     private var snackBar: TSnackbar? = null
 
     private var handler: Handler? = null
+
+    private fun getStatusBarHeight(): Int {
+        var result = 0
+        val resourceId: Int =
+            context.resources.getIdentifier("status_bar_height", "dimen", "android")
+        if (resourceId > 0) {
+            result = context.resources.getDimensionPixelSize(resourceId)
+        }
+        return result
+    }
 
     private fun onBuildToast() {
         if (!isIndefinite) {
@@ -73,6 +103,9 @@ class AtomicToast {
         parentParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
         if (parentParams is FrameLayout.LayoutParams) {
             parentParams.gravity = Gravity.TOP
+            if (isFullScreen) {
+                parentParams.topMargin = getStatusBarHeight()
+            }
         }
         snackBarView.layoutParams = parentParams
 
@@ -173,4 +206,5 @@ class AtomicToast {
         const val TYPE_WARNING = "regular"
         const val TYPE_ERROR = "big"
     }
+
 }
