@@ -19,7 +19,8 @@ class MainActivity : AppCompatActivity() {
             actionText = "testing purposeeeee",
             actionType = AtomicToast.TYPE_WARNING,
             listener = null,
-            isIndefinite = true
+            isIndefinite = true,
+            isFullScreen = true
         ).show()
     }
 

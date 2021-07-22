@@ -35,7 +35,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.6.0'
 
-    implementation 'com.androidadvance:topsnackbar:1.1.1'
+    implementation 'com.github.Redman1037:TSnackBar:V2.0.0'
 
     implementation 'com.google.android.material:material:1.4.0'
 
