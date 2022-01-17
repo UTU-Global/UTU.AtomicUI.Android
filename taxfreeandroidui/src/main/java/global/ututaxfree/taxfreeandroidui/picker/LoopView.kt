@@ -6,6 +6,7 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.Typeface
 import android.os.Handler
+import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.Log
 import android.view.GestureDetector
@@ -158,6 +159,8 @@ class LoopView : View {
             R.styleable.LoopView_textsize,
             sp2px(this.context, 16.0f)
         )
+
+        setPadding(28, 0, 28, 0)
         lineSpacingMultiplier = 1.0f
         centerTextColor =
             typedArray.getColor(R.styleable.LoopView_centertextColor, -13553359)
@@ -210,7 +213,6 @@ class LoopView : View {
             paintCenterText = Paint()
             paintCenterText!!.color = centerTextColor
             paintCenterText!!.isAntiAlias = true
-            paintCenterText!!.textScaleX = scaleX1
             paintCenterText!!.typeface = ResourcesCompat.getFont(
                 context,
                 R.font.notosans_bold
@@ -569,7 +571,7 @@ class LoopView : View {
     private fun drawCenterText(canvas: Canvas, position: Int) {
         canvas.drawText(
             drawingStrings!![position]!!.string,
-            getTextX(drawingStrings!![position]!!.string, paintOuterText, tempRect).toFloat(),
+            getTextX(drawingStrings!![position]!!.string, paintCenterText, tempRect).toFloat(),
             drawingY.toFloat(),
             paintCenterText!!
         )
