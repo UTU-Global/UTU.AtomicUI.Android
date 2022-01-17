@@ -14,8 +14,10 @@
         android:id="@+id/headerWalletLayout"
         android:layout_width="match_parent"
         android:background="@color/colorRed"
+        app:actionType="back"
+        app:menuIcon="@drawable/ic_close"
         android:layout_height="?attr/actionBarSize"
-        app:headerLabel="Test" />
+        app:headerLabel="dhhdhdhdddddddddddhahyfgdghvdfgdvfgdvgdvfgdvfdgvfdgvfdgfvdgfvd" />
 
     <global.ututaxfree.taxfreeandroidui.picker.LoopView
         android:id="@+id/loop"
@@ -27,15 +29,5 @@
         app:outertextColor="@color/colorRed"
         app:textsize="24sp" />
 
-    <global.ututaxfree.taxfreeandroidui.AtomicButton
-        android:id="@+id/addOrLinked"
-        android:layout_width="66dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="12dp"
-        android:gravity="center"
-        android:text="Add"
-        android:textSize="14sp"
-        app:outlined="true"
-        app:size="small" />
 
 </LinearLayout>
