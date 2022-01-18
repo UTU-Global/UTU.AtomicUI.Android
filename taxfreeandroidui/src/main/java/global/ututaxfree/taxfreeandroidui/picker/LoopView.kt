@@ -504,26 +504,26 @@ class LoopView : View {
                 if (translateY <= firstLineY && itemTextHeight + translateY >= firstLineY) {
                     // first divider
                     canvas.save()
-                    canvas.clipRect(0, 0, measuredWidth1, firstLineY - translateY)
+                    canvas.clipRect(30, 0, measuredWidth1, firstLineY - translateY)
                     drawOuterText(canvas, i)
                     canvas.restore()
                     canvas.save()
-                    canvas.clipRect(0, firstLineY - translateY, measuredWidth1, itemHeight.toInt())
+                    canvas.clipRect(30, firstLineY - translateY, measuredWidth1, itemHeight.toInt())
                     drawCenterText(canvas, i)
                     canvas.restore()
                 } else if (translateY <= secondLineY && itemTextHeight + translateY >= secondLineY) {
                     // second divider
                     canvas.save()
-                    canvas.clipRect(0, 0, measuredWidth1, secondLineY - translateY)
+                    canvas.clipRect(30, 0, measuredWidth1, secondLineY - translateY)
                     drawCenterText(canvas, i)
                     canvas.restore()
                     canvas.save()
-                    canvas.clipRect(0, secondLineY - translateY, measuredWidth1, itemHeight.toInt())
+                    canvas.clipRect(30, secondLineY - translateY, measuredWidth1, itemHeight.toInt())
                     drawOuterText(canvas, i)
                     canvas.restore()
                 } else if (translateY >= firstLineY && itemTextHeight + translateY <= secondLineY) {
                     // center item
-                    canvas.clipRect(0, 0, measuredWidth1, itemHeight.toInt())
+                    canvas.clipRect(30, 0, measuredWidth1, itemHeight.toInt())
                     drawCenterText(canvas, i)
                 } else {
                     // other item
