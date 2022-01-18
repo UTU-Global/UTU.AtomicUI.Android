@@ -14,10 +14,9 @@
         android:id="@+id/headerWalletLayout"
         android:layout_width="match_parent"
         android:background="@color/colorRed"
-        app:actionType="back"
         app:menuIcon="@drawable/ic_close"
         android:layout_height="?attr/actionBarSize"
-        app:headerLabel="dhhdhdhdddddddddddhahyfgdghvdfgdvfgdvgdvfgdvfdgvfdgvfdgfvdgfvd" />
+        app:headerLabel="rrrr" />
 
     <global.ututaxfree.taxfreeandroidui.picker.LoopView
         android:id="@+id/loop"
