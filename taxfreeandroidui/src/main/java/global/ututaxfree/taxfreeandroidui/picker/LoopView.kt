@@ -160,7 +160,6 @@ class LoopView : View {
             sp2px(this.context, 16.0f)
         )
 
-        setPadding(28, 0, 28, 0)
         lineSpacingMultiplier = 1.0f
         centerTextColor =
             typedArray.getColor(R.styleable.LoopView_centertextColor, -13553359)
