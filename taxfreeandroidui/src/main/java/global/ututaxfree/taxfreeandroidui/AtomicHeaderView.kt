@@ -12,8 +12,8 @@ import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import androidx.core.view.isGone
 import androidx.core.view.isInvisible
+import global.ututaxfree.taxfreeandroidui.utilities.TaxFreeUtils
 
 /**
  * Created by Bharath Simha Gupta on 2019-10-27.
@@ -95,12 +95,10 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
         }
 
         if (TextUtils.isEmpty(menuText) && menuIcon == -1) {
-            menuIcon = R.drawable.ic_back_black
-            header.findViewById<AppCompatTextView>(R.id.headerMenu)
-                .setCompoundDrawablesWithIntrinsicBounds(
-                    menuIcon, 0, 0, 0
-                )
-            menuButton.isInvisible = true
+            val params = menuButton.layoutParams
+            params.height = TaxFreeUtils.pxToDp(24)
+            params.width = TaxFreeUtils.pxToDp(24)
+            menuButton.layoutParams = params
         }
 
         when (a.getString(R.styleable.AtomicHeaderView_actionType)) {
