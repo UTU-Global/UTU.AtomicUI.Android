@@ -13,10 +13,10 @@
     <global.ututaxfree.taxfreeandroidui.AtomicHeaderView
         android:id="@+id/headerWalletLayout"
         android:layout_width="match_parent"
-        android:background="@color/colorRed"
-        app:menuIcon="@drawable/ic_close"
+        app:actionType="back"
+        app:toolbarBackgroundColor="@color/greenColor"
         android:layout_height="?attr/actionBarSize"
-        app:headerLabel="rrrr" />
+        app:headerLabel="eeeee" />
 
     <global.ututaxfree.taxfreeandroidui.picker.LoopView
         android:id="@+id/loop"
