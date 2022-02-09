@@ -13,7 +13,7 @@
     <global.ututaxfree.taxfreeandroidui.AtomicHeaderView
         android:id="@+id/headerWalletLayout"
         android:layout_width="match_parent"
-        app:actionType="back"
+        app:menuIcon="@drawable/ic_close"
         app:toolbarBackgroundColor="@color/greenColor"
         android:layout_height="?attr/actionBarSize"
         app:headerLabel="eeeee" />
