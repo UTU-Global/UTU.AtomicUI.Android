@@ -152,6 +152,13 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
                 }
             }
 
+            else -> {
+                val params = navigationUpButton.layoutParams
+                params.height = TaxFreeUtils.pxToDp(24)
+                params.width = TaxFreeUtils.pxToDp(24)
+                navigationUpButton.layoutParams = params
+            }
+
         }
         orientation = VERTICAL
         gravity = Gravity.CENTER_VERTICAL
