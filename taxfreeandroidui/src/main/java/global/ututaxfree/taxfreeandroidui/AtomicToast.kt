@@ -184,7 +184,7 @@ class AtomicToast {
                     if (snackBar != null) {
                         snackBar!!.dismiss()
                     }
-                }, 2500)
+                }, 3000)
             }
         }
     }
