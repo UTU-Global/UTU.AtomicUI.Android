@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="freshTeal">#00B398</color>
+    <color name="deepTeal">#009681</color>
+    <color name="chicBlack">#1E1E20</color>
+
+    <color name="enabledButtonFillColor">#00B398</color>
+    <color name="enabledOutlinedButtonFillColor">#FFFFFF</color>
+
+    <color name="disabledButtonFillColor">#D5D5D5</color>
+    <color name="disabledOutlinedButtonFillColor">#FFFFFF</color>
+
+    <color name="enabledTextButtonColor">#FFFFFF</color>
+    <color name="enabledTextOutlinedButtonColor">#00B398</color>
+
+    <color name="disabledTextButtonColor">#999999</color>
+    <color name="disabledTextOutlinedButtonColor">#D5D5D5</color>
+
+    <color name="pressedTextOutlinedButtonColor">#00B398</color>
+
+    <color name="snackbarBgColor">#282828</color>
+
+    <color name="success">#00B398</color>
+    <color name="warning">#FF9948</color>
+    <color name="error">#E33D30</color>
+
+    <color name="colorAccent">#00B398</color>
+
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorWhite1">#1e1e1e</color>
+    <color name="whiteHeaderTextColor">#ffffff</color>
+    <color name="ic_colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="blackHeaderTextColor">#d5d5d5</color>
+    <color name="ic_colorBlack">#d5d5d5</color>
+    <color name="headerColor">#d5d5d5</color>
+    <color name="ic_headerColor">#d5d5d5</color>
+    <color name="colorTitle">#727272</color>
+    <color name="ic_colorTitle">#727272</color>
+    <color name="colorDesc">#a9a9a9</color>
+    <color name="ic_colorDesc">#a9a9a9</color>
+    <color name="ic_checkboxborderColor">#282828</color>
+    <color name="greenColor">#00b398</color>
+    <color name="ic_greenColor">#00b398</color>
+    <color name="colorDivider">#d5d5d5</color>
+    <color name="ic_ColorDivider">#d5d5d5</color>
+    <color name="ic_colorRed">#e33d30</color>
+    <color name="colorRed">#e33d30</color>
+    <color name="ic_colorAcc">#FF000000</color>
+    <color name="ic_blackColorAcc">#00000000</color>
+    <color name="ic_primaryColor">#009681</color>
+    <color name="primaryColor">#009681</color>
+    <color name="ic_colorLightGreen">#1A00B398</color>
+    <color name="ic_colorGrey">#e9e9e9</color>
+    <color name="whiteColor">#141414</color>
+</resources>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AtomicTextInput">
+        <attr name="clearIconDrawable" format="color|reference" />
+        <attr name="clearIconDrawWhenFocused" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="AtomicHeaderView">
+        <attr name="actionType" format="string" />
+        <attr name="menuText" format="string" />
+        <attr name="menuIcon" format="reference" />
+        <attr name="headerLabel" format="string" />
+        <attr name="actionIconColor" format="integer" />
+        <attr name="isTransparentHeader" format="boolean" />
+        <attr name="isWhiteHeader" format="boolean" />
+        <attr name="toolbarBackgroundColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="AtomicPicker">
+        <attr name="lineColor" format="color" />
+        <attr name="topBottomTextColor" format="color" />
+        <attr name="centerTextColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="canLoop" format="boolean" />
+        <attr name="initPosition" format="integer" />
+        <attr name="drawItemCount" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="LoopView">
+        <attr name="dividerTextColor" format="color" />
+        <attr name="outertextColor" format="color" />
+        <attr name="centertextColor" format="color" />
+        <attr name="textsize" format="dimension" />
+        <attr name="isLoop" format="boolean" />
+        <attr name="initialPosition" format="integer" />
+        <attr name="itemsVisibleCount" format="integer" />
+        <attr name="awv_lineSpace" format="float" />
+        <attr name="awv_scaleX" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="AtomicSwitch">
+        <attr name="sb_shadow_radius" format="reference|dimension" />
+        <attr name="sb_shadow_offset" format="reference|dimension" />
+        <attr name="sb_shadow_color" format="reference|color" />
+        <attr name="sb_uncheck_color" format="reference|color" />
+        <attr name="sb_checked_color" format="reference|color" />
+
+        <attr name="sb_border_width" format="reference|dimension" />
+        <attr name="sb_checkline_color" format="reference|color" />
+        <attr name="sb_checkline_width" format="reference|dimension" />
+        <attr name="sb_uncheckcircle_color" format="reference|color" />
+        <attr name="sb_uncheckcircle_width" format="reference|dimension" />
+        <attr name="sb_uncheckcircle_radius" format="reference|dimension" />
+
+        <attr name="sb_checked" format="reference|boolean" />
+        <attr name="sb_shadow_effect" format="reference|boolean" />
+        <attr name="sb_effect_duration" format="reference|integer" />
+        <attr name="sb_button_color" format="reference|color" />
+        <attr name="sb_show_indicator" format="reference|boolean" />
+        <attr name="sb_background" format="reference|color" />
+        <attr name="sb_enable_effect" format="reference|boolean" />
+    </declare-styleable>
+
+
+</resources>

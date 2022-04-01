@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TaxFreeAndroidUI</string>
+    <string name="close_toast">Close Toast</string>
+    <string name="close">close</string>
+    <string name="refund_form">Refund form 1</string>
+    <string name="form">Form</string>
+    <string name="receipt">Receipt</string>
+    <string name="add_form">Add Another Form</string>
+    <string name="desc">Take a photo of your completed form and receipt.You can add and submit all your refund forms.</string>
+</resources>
