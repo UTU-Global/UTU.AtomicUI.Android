@@ -29,7 +29,6 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
     private var isWhiteHeader = false
     lateinit var toolbar: Toolbar
 
-
     companion object {
         const val BACK = "back"
         const val CLOSE = "close"
@@ -39,7 +38,9 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
     }
 
     init {
-        onInit(attrs)
+        if (!isInEditMode) {
+            onInit(attrs)
+        }
     }
 
     private fun onInit(attrs: AttributeSet?) {
@@ -86,7 +87,7 @@ class AtomicHeaderView(context: Context?, attrs: AttributeSet?) : LinearLayout(
 
 
         val menuText = a.getString(R.styleable.AtomicHeaderView_menuText)
-        var menuIcon = a.getResourceId(R.styleable.AtomicHeaderView_menuIcon, -1)
+        val menuIcon = a.getResourceId(R.styleable.AtomicHeaderView_menuIcon, -1)
 
         if (!TextUtils.isEmpty(menuText)) {
             menuButton.text = menuText
