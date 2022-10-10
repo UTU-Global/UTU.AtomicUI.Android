@@ -25,6 +25,7 @@ class AtomicTextInput @JvmOverloads constructor(
     defStyleAttr: Int = R.attr.editTextStyle
 ) :
     TextInputEditText(context, attrs, defStyleAttr), TextWatcher {
+
     private var mClearIconDrawable: Drawable? = null
     private var mIsClearIconShown = false
     private var mClearIconDrawWhenFocused = true
