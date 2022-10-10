@@ -14,68 +14,70 @@ import global.ututaxfree.taxfreeandroidui.utilities.TaxFreeUtils
 
 class AtomicButton : MaterialButton {
 
-    constructor(context: Context) : super(context) {
-        onInit(context, null, R.style.AtomicButton)
-    }
-
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        onInit(context, attrs, R.style.AtomicButton)
-    }
-
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    ) {
-        onInit(context, attrs, defStyleAttr)
-    }
-
     private var isDisabled = false
     private var isOutlined = false
 
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        if (!isInEditMode) {
+            onInit(context, attrs, R.style.AtomicButton)
+        }
+    }
+
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    )
+
     public fun setOutlined(outlined: Boolean) {
-        isOutlined = outlined
-        onBuildTaxFreeButton()
+        if (!isInEditMode) {
+            isOutlined = outlined
+            onBuildTaxFreeButton()
+        }
     }
 
     public fun setDisabled(disabled: Boolean) {
-        isDisabled = disabled
-        onBuildTaxFreeButton()
+        if (!isInEditMode) {
+            isDisabled = disabled
+            onBuildTaxFreeButton()
+        }
     }
 
     private fun onInit(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
+        if (!this.isInEditMode) {
+            gravity = Gravity.CENTER
+            isAllCaps = false
+            typeface = ResourcesCompat.getFont(context, R.font.notosans_bold)
 
-        gravity = Gravity.CENTER
-        isAllCaps = false
-        typeface = ResourcesCompat.getFont(context, R.font.notosans_bold)
+            val atr = context.obtainStyledAttributes(
+                attrs, R.styleable.AtomicButton, defStyleAttr, R.style.AtomicButton
+            )
 
-        val atr = context.obtainStyledAttributes(
-            attrs, R.styleable.AtomicButton, defStyleAttr, R.style.AtomicButton
-        )
+            isOutlined = atr.getBoolean(R.styleable.AtomicButton_outlined, false)
+            isDisabled = atr.getBoolean(R.styleable.AtomicButton_disabled, false)
+            onBuildTaxFreeButton()
 
-        isOutlined = atr.getBoolean(R.styleable.AtomicButton_outlined, false)
-        isDisabled = atr.getBoolean(R.styleable.AtomicButton_disabled, false)
-        onBuildTaxFreeButton()
-
-        when (atr.getString(R.styleable.AtomicButton_size)) {
-            SIZE_SMALL -> {
-                width = TaxFreeUtils.pxToDp(108)
-                height = TaxFreeUtils.pxToDp(32)
-                textSize = 14F
+            when (atr.getString(R.styleable.AtomicButton_size)) {
+                SIZE_SMALL -> {
+                    width = TaxFreeUtils.pxToDp(108)
+                    height = TaxFreeUtils.pxToDp(32)
+                    textSize = 14F
+                }
+                SIZE_REGULAR -> {
+                    width = TaxFreeUtils.pxToDp(164)
+                    height = TaxFreeUtils.pxToDp(40)
+                    textSize = 14F
+                }
+                SIZE_BIG -> {
+                    width = TaxFreeUtils.pxToDp(186)
+                    height = TaxFreeUtils.pxToDp(48)
+                    textSize = 16F
+                }
             }
-            SIZE_REGULAR -> {
-                width = TaxFreeUtils.pxToDp(164)
-                height = TaxFreeUtils.pxToDp(40)
-                textSize = 14F
-            }
-            SIZE_BIG -> {
-                width = TaxFreeUtils.pxToDp(186)
-                height = TaxFreeUtils.pxToDp(48)
-                textSize = 16F
-            }
+
+            atr.recycle()
         }
-
-        atr.recycle()
     }
 
     private fun onBuildTaxFreeButton() {

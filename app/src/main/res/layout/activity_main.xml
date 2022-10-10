@@ -9,18 +9,17 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <global.ututaxfree.taxfreeandroidui.AtomicHeaderView
-        android:id="@+id/headerWalletLayout"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:headerLabel="atomic_ui_test"
-        app:menuIcon="@drawable/ic_close"
-        app:toolbarBackgroundColor="@color/greenColor" />
-
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text="@string/atomic_ui_test" />
+
+    <global.ututaxfree.taxfreeandroidui.AtomicHeaderView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:actionIconColor="0"
+        app:actionType="back"
+        app:headerLabel="BOOK_00001" />
 
 </LinearLayout>

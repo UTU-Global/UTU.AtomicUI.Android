@@ -16,12 +16,14 @@ class AtomicBubble : AppCompatTextView {
     private var value: String? = null
 
     constructor(context: Context, value: String) : super(context) {
-        onInit(context, null, R.style.AtomicBubble, value)
+        if (!isInEditMode)
+            onInit(context, null, R.style.AtomicBubble, value)
     }
 
     constructor(
         context: Context, attrs: AttributeSet
     ) : super(context, attrs) {
+        if (!isInEditMode)
         onInit(context, attrs, R.style.AtomicBubble, null)
     }
 
