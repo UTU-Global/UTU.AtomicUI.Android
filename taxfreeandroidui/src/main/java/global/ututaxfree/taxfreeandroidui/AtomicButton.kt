@@ -49,6 +49,7 @@ class AtomicButton : MaterialButton {
             gravity = Gravity.CENTER
             isAllCaps = false
             typeface = ResourcesCompat.getFont(context, R.font.notosans_bold)
+            letterSpacing = 0f
 
             val atr = context.obtainStyledAttributes(
                 attrs, R.styleable.AtomicButton, defStyleAttr, R.style.AtomicButton
