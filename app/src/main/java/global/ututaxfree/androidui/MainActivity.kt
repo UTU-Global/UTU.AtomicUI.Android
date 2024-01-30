@@ -7,6 +7,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.lokalise.sdk.LokaliseContextWrapper
+import global.ututaxfree.taxfreeandroidui.AtomicToast
 
 class MainActivity : AppCompatActivity() {
 
