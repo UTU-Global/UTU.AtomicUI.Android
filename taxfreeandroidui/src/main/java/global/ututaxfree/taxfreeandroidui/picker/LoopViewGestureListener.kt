@@ -5,7 +5,7 @@ import android.view.MotionEvent
 
 internal class LoopViewGestureListener(private val loopView: LoopView) : SimpleOnGestureListener() {
     override fun onFling(
-        e1: MotionEvent,
+        e1: MotionEvent?,
         e2: MotionEvent,
         velocityX: Float,
         velocityY: Float
