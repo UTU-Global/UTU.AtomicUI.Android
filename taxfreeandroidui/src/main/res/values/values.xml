@@ -4,6 +4,7 @@
     <declare-styleable name="AtomicButton">
         <attr name="size" format="string" />
         <attr name="outlined" format="boolean" />
+        <attr name="fullWidth" format="boolean"/>
         <attr name="disabled" format="boolean" />
         <attr name="state" format="string" />
     </declare-styleable>
@@ -12,6 +13,7 @@
         <item name="size">regular</item>
         <item name="outlined">false</item>
         <item name="disabled">false</item>
+        <item name="fullWidth">false</item>
     </style>
 
     <style name="AtomicButton" parent="Base.AtomicButton" />
