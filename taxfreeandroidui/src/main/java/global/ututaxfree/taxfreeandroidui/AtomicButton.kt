@@ -15,6 +15,7 @@ import global.ututaxfree.taxfreeandroidui.utilities.TaxFreeUtils
 class AtomicButton : MaterialButton {
 
     private var isDisabled = false
+    private var isFullWidth = false
     private var isOutlined = false
 
     constructor(context: Context) : super(context)
@@ -57,6 +58,7 @@ class AtomicButton : MaterialButton {
 
             isOutlined = atr.getBoolean(R.styleable.AtomicButton_outlined, false)
             isDisabled = atr.getBoolean(R.styleable.AtomicButton_disabled, false)
+            isFullWidth = atr.getBoolean(R.styleable.AtomicButton_fullWidth, false)
             onBuildTaxFreeButton()
 
             when (atr.getString(R.styleable.AtomicButton_size)) {
@@ -114,8 +116,11 @@ class AtomicButton : MaterialButton {
             false -> {
                 when (isDisabled) {
                     true -> {
-                        background =
+                        background = if(isFullWidth){
+                            ContextCompat.getDrawable(context, R.drawable.grey_rectangle_button)
+                        }else {
                             ContextCompat.getDrawable(context, R.drawable.combined_disabled)
+                        }
                         setTextColor(
                             ContextCompat.getColor(
                                 context,
@@ -124,8 +129,11 @@ class AtomicButton : MaterialButton {
                         )
                     }
                     false -> {
-                        background =
+                        background = if(isFullWidth){
+                            ContextCompat.getDrawable(context, R.drawable.green_rectangle_button)
+                        }else {
                             ContextCompat.getDrawable(context, R.drawable.combined_state)
+                        }
                         setTextColor(
                             ContextCompat.getColor(
                                 context, R.color.enabledTextButtonColor
