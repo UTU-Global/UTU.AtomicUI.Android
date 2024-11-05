@@ -6,11 +6,11 @@ android {
     dataBinding {
         enabled = true
     }
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         minSdkVersion 23
-        targetSdkVersion 34
+        targetSdkVersion 35
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -38,19 +38,25 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.10'
-    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.20'
+    implementation 'androidx.core:core-ktx:1.15.0'
 
     implementation 'com.github.Redman1037:TSnackBar:V2.0.0'
 
-    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'com.google.android.material:material:1.12.0'
 
     //Loader
-    implementation 'com.wang.avi:library:2.1.3'
+//    implementation 'com.wang.avi:library:2.1.3'
+
+    implementation 'io.github.maitrungduc1410:AVLoadingIndicatorView:2.1.4'
+
 
     kapt 'com.android.databinding:compiler:3.4.1'
-    implementation 'com.dinuscxj:recyclerrefreshlayout:2.0.5'
-    implementation 'com.agrawalsuneet.androidlibs:dotsloader:1.4'
+//    implementation 'com.dinuscxj:recyclerrefreshlayout:2.0.5'
+
+//    implementation 'com.agrawalsuneet.androidlibs:dotsloader:1.4.2'
+    implementation 'com.github.agrawalsuneet:DotLoadersPack-Android:1.4.2'
+
     implementation('com.lokalise.android:sdk:2.1.1') {
         transitive = true
     }
